@@ -25,7 +25,7 @@ export default function FAQPage() {
       id: "1",
       question: "How do I apply for a student visa for India?",
       answer:
-        "To apply for a student visa for India, you need to first receive an admission letter from Manipal University Jaipur. Then, visit the official Indian embassy or consulate website in your country to fill out the visa application form. Submit the required documents including your passport, admission letter, financial statements, and photographs. The visa processing typically takes 2-4 weeks.",
+        "You can apply for a Student Visa or PIO or OCI at your nearest Indian Embassy or Consulate. You will need to submit the admission confirmation letter issued by the Director, Admissions, Manipal University Jaipur.",
       category: "visa",
     },
     {
@@ -35,27 +35,55 @@ export default function FAQPage() {
         "For university registration, you need to bring your passport with valid visa, admission letter, original academic certificates and transcripts, medical fitness certificate, passport-sized photographs, and proof of fee payment. It's also recommended to bring multiple photocopies of all these documents.",
       category: "documents",
     },
-    {
-      id: "3",
-      question: "How can I open a bank account in India as an international student?",
-      answer:
-        "To open a bank account in India as an international student, you'll need your passport, valid visa, university ID card, proof of address (university hostel letter works), and a reference letter from the International Student Office. Most banks near the campus offer special student accounts with minimal documentation. The university's international office can assist you with the process.",
-      category: "banking",
-    },
+   {
+  id: "3",
+  question: "How can I open a bank account in India as an international student?",
+  answer: (
+    <>
+      To open a bank account in India as an international student, you'll need your passport, valid visa, university ID card, proof of address (university hostel letter works), and a reference letter from the International Student Office.
+      Most banks near the campus offer special student accounts with minimal documentation. The university's international office can assist you with the process.
+      Here's information on {" "}
+      <a
+        href="https://www.icicibank.com/personal-banking/accounts/savings-account"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:text-blue-800 underline"
+      >
+        opening an ICICI Bank account
+      </a>
+      .
+    </>
+  ),
+  category: "banking",
+}
+,
     {
       id: "4",
       question: "What healthcare facilities are available on campus?",
       answer:
-        "Manipal University Jaipur has a comprehensive health center on campus with general physicians available 24/7. For specialized care, the university has tie-ups with nearby hospitals. All international students are required to have health insurance. The campus health center can provide basic medications, first aid, and referrals to specialists when needed.",
+        "Manipal University Jaipur has a comprehensive health center on campus with general physicians available 24/7. For specialized care, the university has a tie-up with Manipal Hosiptals. The campus health center can provide basic medications, first aid, and referrals to specialists when needed.",
       category: "health",
     },
     {
-      id: "5",
-      question: "How do I extend my visa if needed?",
-      answer:
-        "To extend your visa, you need to apply through the FRRO (Foreigners Regional Registration Office) portal at least 60 days before your current visa expires. You'll need a letter from the university confirming your continued enrollment, your passport, current visa details, and proof of financial means. The International Student Office can guide you through this process.",
-      category: "visa",
-    },
+  id: "5",
+  question: "How do I extend my visa if needed?",
+  answer: (
+    <>
+      To extend your visa, you need to apply through the FRRO (Foreigners Regional Registration Office) portal. You'll need a letter from the university confirming your continued enrollment, your passport, current visa details, and proof of financial means. The International Student Office can guide you through this process. Visit{" "}
+      <a
+        href="https://indianfrro.gov.in/eservices/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:text-blue-800 underline"
+      >
+        FRRO Website
+      </a>{" "}
+      for more details.
+    </>
+  ),
+  category: "visa",
+}
+,
     {
       id: "6",
       question: "What are the mess timings for breakfast, lunch, and dinner?",
@@ -130,19 +158,35 @@ export default function FAQPage() {
       category: "academics",
     },
     {
-      id: "13",
-      question: "What is the weightage and split of marks (internal, external, assignments, etc.)?",
-      answer:
-        "The marks distribution is as follows: Internal Assessment: 30 marks (includes quizzes, assignments, and coursework), Mid-Term Exams: 30 marks, End-Term Exams: 40 marks.",
-      category: "academics",
-    },
+  id: "13",
+  question: "What is the weightage and split of marks (internal, external, assignments, etc.)?",
+  answer: (
+    <>
+      The marks distribution is as follows:
+      <ul className="list-disc list-inside mt-2">
+        <li><strong>Internal Assessment:</strong> 30 marks (includes quizzes, assignments, and coursework)</li>
+        <li><strong>Mid-Term Exams:</strong> 30 marks</li>
+        <li><strong>End-Term Exams:</strong> 40 marks</li>
+      </ul>
+    </>
+  ),
+  category: "academics",
+}
+,
     {
-      id: "14",
-      question: "What are the attendance rules and minimum percentage required?",
-      answer:
-        "A minimum of 75% attendance is mandatory to be eligible for examinations.",
-      category: "academics",
-    },
+  id: "14",
+  question: "What are the attendance rules and minimum percentage required?",
+  answer: (
+    <>
+      A minimum of <strong>75% attendance</strong> is mandatory to be eligible for examinations.{" "}
+      Falling below this threshold will result in <strong>detainment</strong>, requiring you to{" "}
+      <strong>re-register for the course credits</strong>, pay the associated fee again, and{" "}
+      attend the same course in a future semester.
+    </>
+  ),
+  category: "academics",
+}
+,
     {
       id: "15",
       question: "What are the rules regarding backlogs and re-examinations?",
@@ -158,6 +202,8 @@ export default function FAQPage() {
       category: "hostel and campus",
     },
   ])
+
+
 
   const handleAddFAQ = () => {
     if (newQuestion.trim() && newAnswer.trim()) {

@@ -18,9 +18,9 @@ export default function MapPage() {
     },
     {
       id: "hostel",
-      name: "International Hostel",
+      name: "Student Hostel",
       icon: <Home className="h-5 w-5" />,
-      description: "Accommodation for international students with modern amenities.",
+      description: "Accommodation for all students with modern amenities.",
     },
     {
       id: "library",
@@ -32,7 +32,7 @@ export default function MapPage() {
       id: "cafeteria",
       name: "Food Court",
       icon: <Utensils className="h-5 w-5" />,
-      description: "Various food options including international cuisines.",
+      description: "Various food options of many cuisines.",
     },
     {
       id: "cafe",

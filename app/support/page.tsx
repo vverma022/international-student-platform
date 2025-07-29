@@ -41,40 +41,42 @@ export default function SupportPage() {
     { id: "other", name: "Other Issues", icon: <MessageSquare className="h-5 w-5" /> },
   ]
 
-  const supportContacts = [
+  
+const supportContacts = [
     {
-      id: "international-office",
-      title: "International Student Office",
-      description: "Primary contact for all international student matters",
-      email: "international@muj.edu",
-      phone: "+91 1234 567890",
+      id: "admissions-office",
+      title: "Admissions Office",
+      description: "Primary contact for all admission matters",
+      email: "admissions@jaipur.manipal.edu",
+      phone: "0141 - 3999100 (Extensions 142, 257, 297)",
       hours: "Mon-Fri: 9:00 AM - 5:00 PM",
     },
     {
-      id: "visa-support",
-      title: "Visa & Immigration Support",
-      description: "Specialized assistance with visa-related issues",
-      email: "visa@muj.edu",
-      phone: "+91 1234 567891",
-      hours: "Mon-Fri: 10:00 AM - 4:00 PM",
+      id: "chief-warden-office",
+      title: "Chief Warden Office",
+      description: "Hostel inquiries",
+      email: "office.chiefwarden@jaipur.manipal.edu",
+      phone: "0141 - 3999100 (Extensions 108, 493)",
+      hours: "Mon-Fri: 9:00 AM - 5:00 PM",
     },
     {
-      id: "counseling",
-      title: "Student Counseling Center",
-      description: "Mental health and adjustment support",
-      email: "counseling@muj.edu",
-      phone: "+91 1234 567892",
-      hours: "Mon-Sat: 9:00 AM - 6:00 PM",
+      id: "finance",
+      title: "Student Finance Center",
+      description: "Financial inquiries",
+      email: "student.finance@jaipur.manipal.edu",
+      phone: "0141 - 3999100 (Extensions 236, 252, 741)",
+      hours: "Mon-Sat: 9:00 AM - 5:00 PM",
     },
     {
-      id: "emergency",
-      title: "Emergency Contact",
-      description: "24/7 emergency assistance",
-      email: "emergency@muj.edu",
-      phone: "+91 1234 567899",
-      hours: "24/7 Available",
+      id: "doic",
+      title: "Directorate of International Collaborations",
+      description: "International student queries",
+      email: "doic@jaipur.manipal.edu",
+      phone: "0141 - 3999100",
+      hours: "Mon-Sat: 9:00 AM - 5:00 PM",
     },
   ]
+
 
   const recentCases = [
     {

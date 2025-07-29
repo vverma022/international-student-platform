@@ -12,8 +12,8 @@ export default function PanoramaPage() {
   const panoramaViews = [
     {
       id: "main-building",
-      name: "Main Academic Building",
-      description: "The central academic complex housing classrooms, labs, and faculty offices.",
+      name: "Adminstrative Block",
+      description: "Main administrative offices, international student office, and admission department.",
     },
     {
       id: "library",
@@ -22,15 +22,12 @@ export default function PanoramaPage() {
     },
     {
       id: "hostel",
-      name: "International Student Hostel",
-      description: "Dedicated accommodation for international students with modern amenities.",
+      name: "Student Hostel",
+      description: "Dedicated accommodation for all students with modern amenities.",
     },
-    { id: "cafeteria", name: "Food Court", description: "Multi-cuisine food court offering diverse dining options." },
-    {
-      id: "sports",
-      name: "Sports Complex",
-      description: "Comprehensive sports facilities including indoor and outdoor courts.",
-    },
+    { id: "cafeteria", 
+      name: "Food Court", 
+      description: "Multi-cuisine food court offering diverse dining options." },
   ]
 
   const nextView = () => {
