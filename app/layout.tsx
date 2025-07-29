@@ -5,7 +5,11 @@ export const metadata: Metadata = {
   title: 'MUJ International - International Student Platform',
   description: 'Your comprehensive guide to navigating life as an international student at Manipal University Jaipur',
   generator: 'v0.dev',
+  icons: {
+    icon: '/logo.png', 
+  },
 }
+
 
 export default function RootLayout({
   children,
