@@ -236,14 +236,16 @@ export default function DocumentsPage() {
   }
 
   return (
-    <div className="container py-10">
-      <h1 className="text-3xl font-bold mb-2">Document Processing Guides</h1>
-      <p className="text-gray-500 mb-8">
-        Step-by-step instructions for obtaining and processing all required documents for international students.
-      </p>
+    <div className="container mx-auto px-4 md:px-6 py-10 max-w-7xl">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">Document Processing Guides</h1>
+        <p className="text-gray-500">
+          Step-by-step instructions for obtaining and processing all required documents for international students.
+        </p>
+      </div>
 
       <Tabs defaultValue="visa" onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-5">
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 max-w-4xl mx-auto">
           {documentCategories.map((category) => (
             <TabsTrigger key={category.id} value={category.id}>
               {category.name}
@@ -253,9 +255,9 @@ export default function DocumentsPage() {
 
         {Object.entries(documents).map(([category, docs]) => (
           <TabsContent key={category} value={category} className="mt-6">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
               {docs.map((doc) => (
-                <Card key={doc.id} className="overflow-hidden">
+                <Card key={doc.id} className="overflow-hidden h-full flex flex-col">
                   <CardHeader className="bg-blue-50 dark:bg-gray-800">
                     <CardTitle className="flex items-center gap-2">
                       <FileText className="h-5 w-5 text-blue-500" />
@@ -263,7 +265,7 @@ export default function DocumentsPage() {
                     </CardTitle>
                     <CardDescription>{doc.description}</CardDescription>
                   </CardHeader>
-                  <CardContent className="pt-6">
+                  <CardContent className="pt-6 flex-1">
                     <div className="mb-4">
                       <div className="flex justify-between mb-2 text-sm">
                         <span>Completion Progress</span>
@@ -274,10 +276,10 @@ export default function DocumentsPage() {
                     <div className="space-y-2">
                       {doc.steps.slice(0, 3).map((step) => (
                         <div key={step.id} className="flex items-start gap-3 text-sm">
-                          <div className="mt-0.5 text-gray-400">
+                          <div className="mt-0.5 text-gray-400 flex-shrink-0">
                             <Clock className="h-4 w-4" />
                           </div>
-                          <div>
+                          <div className="flex-1">
                             <p className="font-medium">{step.title}</p>
                             <p className="text-gray-500 text-xs">{step.description}</p>
                           </div>
@@ -288,7 +290,7 @@ export default function DocumentsPage() {
                       )}
                     </div>
                   </CardContent>
-                  <CardFooter className="border-t bg-gray-50 dark:bg-gray-900">
+                  <CardFooter className="border-t bg-gray-50 dark:bg-gray-900 mt-auto">
                     <div className="flex w-full justify-between">
                       <Button variant="ghost" size="sm" className="flex items-center gap-1">
                         <Download className="h-4 w-4" />

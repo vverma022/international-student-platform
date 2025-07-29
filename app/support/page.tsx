@@ -101,20 +101,22 @@ export default function SupportPage() {
   ]
 
   return (
-    <div className="container py-10">
-      <h1 className="text-3xl font-bold mb-2">Support for Special Cases</h1>
-      <p className="text-gray-500 mb-8">Get assistance for non-standard situations and special requirements.</p>
+    <div className="container mx-auto px-4 md:px-6 py-10 max-w-7xl">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">Support for Special Cases</h1>
+        <p className="text-gray-500">Get assistance for non-standard situations and special requirements.</p>
+      </div>
 
       <Tabs defaultValue="request" className="w-full">
-        <TabsList className="grid w-full max-w-md grid-cols-3">
+        <TabsList className="grid w-full max-w-md grid-cols-3 mx-auto">
           <TabsTrigger value="request">Request Support</TabsTrigger>
           <TabsTrigger value="contacts">Support Contacts</TabsTrigger>
           <TabsTrigger value="cases">My Cases</TabsTrigger>
         </TabsList>
 
         <TabsContent value="request" className="mt-6">
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="md:col-span-1">
+          <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="lg:col-span-1">
               <Card>
                 <CardHeader>
                   <CardTitle>Support Categories</CardTitle>
@@ -140,7 +142,7 @@ export default function SupportPage() {
               </Card>
             </div>
 
-            <div className="md:col-span-2">
+            <div className="lg:col-span-2">
               <Card>
                 <CardHeader>
                   <CardTitle>Submit Support Request</CardTitle>
@@ -214,31 +216,31 @@ export default function SupportPage() {
         </TabsContent>
 
         <TabsContent value="contacts" className="mt-6">
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {supportContacts.map((contact) => (
-              <Card key={contact.id}>
+              <Card key={contact.id} className="h-full flex flex-col">
                 <CardHeader>
                   <CardTitle>{contact.title}</CardTitle>
                   <CardDescription>{contact.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <Mail className="h-4 w-4 text-gray-500" />
-                      <span>{contact.email}</span>
+                      <Mail className="h-4 w-4 text-gray-500 flex-shrink-0" />
+                      <span className="break-all">{contact.email}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Phone className="h-4 w-4 text-gray-500" />
+                      <Phone className="h-4 w-4 text-gray-500 flex-shrink-0" />
                       <span>{contact.phone}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Clock className="h-4 w-4 text-gray-500" />
+                      <Clock className="h-4 w-4 text-gray-500 flex-shrink-0" />
                       <span>{contact.hours}</span>
                     </div>
                   </div>
                 </CardContent>
-                <CardFooter>
-                  <div className="flex gap-2">
+                <CardFooter className="mt-auto">
+                  <div className="flex gap-2 w-full">
                     <Button variant="outline" className="flex-1">
                       Call
                     </Button>
@@ -252,12 +254,12 @@ export default function SupportPage() {
 
         <TabsContent value="cases" className="mt-6">
           {recentCases.length > 0 ? (
-            <div className="space-y-4">
+            <div className="space-y-4 max-w-4xl mx-auto">
               {recentCases.map((caseItem) => (
                 <Card key={caseItem.id}>
                   <CardContent className="p-0">
-                    <div className="p-6  flex items-center justify-between">
-                      <div>
+                    <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                      <div className="flex-1">
                         <h3 className="font-medium mb-1">{caseItem.title}</h3>
                         <div className="flex items-center gap-3 text-sm text-gray-500">
                           <span className="capitalize">{caseItem.category}</span>
@@ -288,7 +290,7 @@ export default function SupportPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-12 max-w-md mx-auto">
               <LifeBuoy className="h-12 w-12 text-gray-300 mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">No support cases yet</h3>
               <p className="text-gray-500 mb-6">You haven't submitted any support requests.</p>

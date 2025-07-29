@@ -185,9 +185,9 @@ export default function FAQPage() {
   const categories = Array.from(new Set(faqs.map((faq) => faq.category)))
 
   return (
-    <div className="container py-10">
-      <div className="flex justify-between items-center mb-8">
-        <div>
+    <div className="container mx-auto px-4 md:px-6 py-10 max-w-7xl">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
+        <div className="flex-1">
           <h1 className="text-3xl font-bold">Frequently Asked Questions</h1>
           <p className="text-gray-500 mt-2">
             Find answers to common questions about studying at Manipal University Jaipur as an international student.
@@ -195,7 +195,7 @@ export default function FAQPage() {
         </div>
         <Dialog>
           <DialogTrigger asChild>
-            <Button className="flex items-center gap-2">
+            <Button className="flex items-center gap-2 w-full lg:w-auto">
               <Plus className="h-4 w-4" />
               Add Question
             </Button>
@@ -239,7 +239,7 @@ export default function FAQPage() {
         </Dialog>
       </div>
 
-      <div className="relative mb-6">
+      <div className="relative mb-6 max-w-2xl">
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
         <Input
           placeholder="Search FAQs..."
@@ -249,8 +249,8 @@ export default function FAQPage() {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="md:col-span-1">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="lg:col-span-1">
           <h3 className="font-medium mb-3">Categories</h3>
           <div className="space-y-2">
             <Button
@@ -272,7 +272,7 @@ export default function FAQPage() {
             ))}
           </div>
         </div>
-        <div className="md:col-span-3">
+        <div className="lg:col-span-3">
           {filteredFAQs.length > 0 ? (
             <Accordion type="single" collapsible className="w-full">
               {filteredFAQs.map((faq) => (

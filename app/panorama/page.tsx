@@ -42,14 +42,16 @@ export default function PanoramaPage() {
   }
 
   return (
-    <div className="container py-10">
-      <h1 className="text-3xl font-bold mb-2">Virtual Campus Tour</h1>
-      <p className="text-gray-500 mb-8">
-        Explore Manipal University Jaipur through 360° panoramic views of key locations.
-      </p>
+    <div className="container mx-auto px-4 md:px-6 py-10 max-w-7xl">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">Virtual Campus Tour</h1>
+        <p className="text-gray-500">
+          Explore Manipal University Jaipur through 360° panoramic views of key locations.
+        </p>
+      </div>
 
       <Tabs defaultValue="panorama" className="w-full">
-        <TabsList className="grid w-full max-w-md grid-cols-2">
+        <TabsList className="grid w-full max-w-md grid-cols-2 mx-auto">
           <TabsTrigger value="panorama">Panoramic Views</TabsTrigger>
           <TabsTrigger value="list">Location List</TabsTrigger>
         </TabsList>
@@ -57,10 +59,10 @@ export default function PanoramaPage() {
           <div className="relative w-full h-[500px] bg-gray-100 rounded-lg overflow-hidden">
             {/* This would be replaced with an actual 360° panorama viewer in production */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
+              <div className="text-center max-w-md mx-auto px-4">
                 <Building className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-xl font-medium mb-2">{panoramaViews[currentView].name}</h3>
-                <p className="text-gray-500 max-w-md mx-auto mb-6">{panoramaViews[currentView].description}</p>
+                <p className="text-gray-500 mb-6">{panoramaViews[currentView].description}</p>
                 <Button>View in Full Screen</Button>
               </div>
             </div>
@@ -90,12 +92,12 @@ export default function PanoramaPage() {
           </div>
 
           {/* Thumbnail navigation */}
-          <div className="grid grid-cols-5 gap-2 mt-4">
+          <div className="grid grid-cols-5 gap-2 mt-4 max-w-2xl mx-auto">
             {panoramaViews.map((view, index) => (
               <div
                 key={view.id}
-                className={`cursor-pointer rounded-md overflow-hidden border-2 ${
-                  index === currentView ? "border-blue-500" : "border-transparent"
+                className={`cursor-pointer rounded-md overflow-hidden border-2 transition-colors ${
+                  index === currentView ? "border-blue-500" : "border-transparent hover:border-gray-300"
                 }`}
                 onClick={() => setCurrentView(index)}
               >
@@ -107,12 +109,12 @@ export default function PanoramaPage() {
           </div>
         </TabsContent>
         <TabsContent value="list" className="mt-6">
-          <div className="grid gap-4">
+          <div className="grid gap-4 max-w-4xl mx-auto">
             {panoramaViews.map((view, index) => (
               <Card key={view.id} className="overflow-hidden">
                 <CardContent className="p-0">
                   <div className="p-4 flex items-start gap-4">
-                    <div className="bg-gray-200 p-4 rounded-md">
+                    <div className="bg-gray-200 p-4 rounded-md flex-shrink-0">
                       <Building className="h-8 w-8 text-gray-500" />
                     </div>
                     <div className="flex-1">

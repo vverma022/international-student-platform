@@ -43,15 +43,17 @@ export default function MapPage() {
   ]
 
   return (
-    <div className="container py-10">
-      <h1 className="text-3xl font-bold mb-6">Interactive Campus Map</h1>
-      <p className="text-gray-500 mb-8">
-        Explore Manipal University Jaipur campus with our interactive map. Click on markers to learn more about each
-        location.
-      </p>
+    <div className="container mx-auto px-4 md:px-6 py-10 max-w-7xl">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">Interactive Campus Map</h1>
+        <p className="text-gray-500">
+          Explore Manipal University Jaipur campus with our interactive map. Click on markers to learn more about each
+          location.
+        </p>
+      </div>
 
       <Tabs defaultValue="map" className="w-full">
-        <TabsList className="grid w-full max-w-md grid-cols-2">
+        <TabsList className="grid w-full max-w-md grid-cols-2 mx-auto">
           <TabsTrigger value="map">Map View</TabsTrigger>
           <TabsTrigger value="list">List View</TabsTrigger>
         </TabsList>
@@ -59,7 +61,7 @@ export default function MapPage() {
           <div className="relative w-full h-[600px] bg-gray-100 rounded-lg overflow-hidden">
             {/* This would be replaced with an actual map component in production */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
+              <div className="text-center max-w-md mx-auto px-4">
                 <p className="text-gray-500 mb-4">
                   Interactive map would be implemented here using a mapping library like Leaflet or Google Maps API
                 </p>
@@ -107,13 +109,13 @@ export default function MapPage() {
           </div>
         </TabsContent>
         <TabsContent value="list" className="mt-6">
-          <div className="grid gap-4">
+          <div className="grid gap-4 max-w-4xl mx-auto">
             {locations.map((location) => (
               <Card key={location.id} className="overflow-hidden">
                 <CardContent className="p-0">
                   <div className="p-4 flex items-start gap-4">
-                    <div className="bg-blue-100 p-3 rounded-full">{location.icon}</div>
-                    <div>
+                    <div className="bg-blue-100 p-3 rounded-full flex-shrink-0">{location.icon}</div>
+                    <div className="flex-1">
                       <h3 className="font-medium mb-1">{location.name}</h3>
                       <p className="text-sm text-gray-500 mb-3">{location.description}</p>
                       <div className="flex gap-2">

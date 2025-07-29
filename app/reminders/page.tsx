@@ -110,9 +110,9 @@ export default function RemindersPage() {
   const sortedReminders = [...reminders].sort((a, b) => a.date.getTime() - b.date.getTime())
 
   return (
-    <div className="container py-10">
-      <div className="flex justify-between items-center mb-8">
-        <div>
+    <div className="container mx-auto px-4 md:px-6 py-10 max-w-7xl">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
+        <div className="flex-1">
           <h1 className="text-3xl font-bold">Document Renewal Reminders</h1>
           <p className="text-gray-500 mt-2">
             Set up automatic notifications for important document renewals and deadlines.
@@ -120,7 +120,7 @@ export default function RemindersPage() {
         </div>
         <Dialog>
           <DialogTrigger asChild>
-            <Button className="flex items-center gap-2">
+            <Button className="flex items-center gap-2 w-full lg:w-auto">
               <Plus className="h-4 w-4" />
               Add Reminder
             </Button>
@@ -189,19 +189,19 @@ export default function RemindersPage() {
         </Dialog>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         {sortedReminders.map((reminder) => (
-          <Card key={reminder.id} className={reminder.active ? "" : "opacity-60"}>
+          <Card key={reminder.id} className={`h-full flex flex-col ${reminder.active ? "" : "opacity-60"}`}>
             <CardHeader className="pb-3">
               <div className="flex justify-between items-start">
-                <div className="space-y-1">
+                <div className="space-y-1 flex-1">
                   <CardTitle className="flex items-center gap-2">
-                    <Bell className="h-4 w-4 text-blue-500" />
+                    <Bell className="h-4 w-4 text-blue-500 flex-shrink-0" />
                     {reminder.title}
                   </CardTitle>
                   <CardDescription>{reminder.description}</CardDescription>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-shrink-0">
                   <Switch checked={reminder.active} onCheckedChange={() => toggleReminder(reminder.id)} />
                   <Button
                     variant="ghost"
@@ -214,21 +214,21 @@ export default function RemindersPage() {
                 </div>
               </div>
             </CardHeader>
-            <CardContent>
-              <div className="flex items-center gap-4 text-sm">
+            <CardContent className="flex-1">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-sm">
                 <div className="flex items-center gap-1 text-gray-500">
-                  <CalendarIcon className="h-4 w-4" />
+                  <CalendarIcon className="h-4 w-4 flex-shrink-0" />
                   <span>{format(reminder.date, "PPP")}</span>
                 </div>
                 <div className="flex items-center gap-1 text-gray-500">
-                  <Clock className="h-4 w-4" />
+                  <Clock className="h-4 w-4 flex-shrink-0" />
                   <span>
                     {Math.ceil((reminder.date.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))} days left
                   </span>
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="pt-1">
+            <CardFooter className="pt-1 mt-auto">
               <span className={`text-xs px-2 py-1 rounded-full ${getTypeColor(reminder.type)} capitalize`}>
                 {reminder.type}
               </span>
@@ -238,7 +238,7 @@ export default function RemindersPage() {
       </div>
 
       {reminders.length === 0 && (
-        <div className="text-center py-12">
+        <div className="text-center py-12 max-w-md mx-auto">
           <Bell className="h-12 w-12 text-gray-300 mx-auto mb-4" />
           <h3 className="text-lg font-medium mb-2">No reminders set</h3>
           <p className="text-gray-500 mb-6">You haven't created any document reminders yet.</p>
