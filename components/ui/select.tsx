@@ -6,12 +6,32 @@ import { Check, ChevronDown, ChevronUp } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Select Component with DepthUI Design System
+ * 
+ * The Select component uses depth to distinguish states:
+ * - Trigger: Recessed input style (sunken appearance)
+ * - Content dropdown: Elevated with dual shadow
+ * - Selected items: Highlighted with accent color
+ * 
+ * Usage:
+ * <Select>
+ *   <SelectTrigger><SelectValue placeholder="Select an option" /></SelectTrigger>
+ *   <SelectContent>
+ *     <SelectItem value="1">Option 1</SelectItem>
+ *     <SelectItem value="2">Option 2</SelectItem>
+ *   </SelectContent>
+ * </Select>
+ */
 const Select = SelectPrimitive.Root
 
 const SelectGroup = SelectPrimitive.Group
 
 const SelectValue = SelectPrimitive.Value
 
+/**
+ * SelectTrigger - Recessed input style that appears sunken into the page
+ */
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
@@ -19,7 +39,19 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      // DepthUI: recessed input appearance
+      "flex h-10 w-full items-center justify-between rounded-lg bg-input px-3 py-2 text-sm text-foreground",
+      // Recessed shadow - sunken effect
+      "shadow-[inset_0_2px_4px_0_var(--shadow-color)]",
+      "border border-input/50",
+      // Smooth transitions
+      "transition-all duration-200 ease-in-out",
+      // Focus state
+      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1",
+      // Placeholder and disabled states
+      "placeholder:text-muted-foreground",
+      "disabled:cursor-not-allowed disabled:opacity-50",
+      "[&>span]:line-clamp-1",
       className
     )}
     {...props}
@@ -67,6 +99,10 @@ const SelectScrollDownButton = React.forwardRef<
 SelectScrollDownButton.displayName =
   SelectPrimitive.ScrollDownButton.displayName
 
+/**
+ * SelectContent - Elevated dropdown with DepthUI shadow
+ * Appears to float above the page with dual shadow system
+ */
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
@@ -75,7 +111,16 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        // DepthUI: elevated dropdown with medium shadow
+        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-xl bg-popover text-popover-foreground",
+        "shadow-[inset_0_1px_1px_0_var(--highlight-color),_0_4px_8px_0_var(--shadow-color)]",
+        "border border-border/50",
+        // Smooth animations
+        "data-[state=open]:animate-in data-[state=closed]:animate-out",
+        "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+        "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2",
+        "data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
         position === "popper" &&
           "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
         className
@@ -111,6 +156,10 @@ const SelectLabel = React.forwardRef<
 ))
 SelectLabel.displayName = SelectPrimitive.Label.displayName
 
+/**
+ * SelectItem - Individual option with hover/focus depth effect
+ * Selected items get elevated appearance with accent color
+ */
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
@@ -118,7 +167,14 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      // Base styling
+      "relative flex w-full cursor-default select-none items-center rounded-lg py-2 pl-8 pr-2 text-sm outline-none",
+      // DepthUI: subtle elevation on focus/hover
+      "transition-all duration-200 ease-in-out",
+      "focus:bg-accent focus:text-accent-foreground",
+      "focus:shadow-[inset_0_1px_1px_0_var(--highlight-color),_0_1px_2px_0_var(--shadow-color)]",
+      // Disabled state
+      "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
     {...props}
