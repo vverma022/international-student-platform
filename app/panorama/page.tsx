@@ -1,45 +1,10 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Building, ChevronLeft, ChevronRight, Maximize2, Info } from "lucide-react"
+import { useRef } from "react"
+import { StreetViewLevels } from "@/components/ui/street-view-levels"
 
 export default function PanoramaPage() {
-  const [currentView, setCurrentView] = useState(0)
-
-  const panoramaViews = [
-    {
-      id: "main-building",
-      name: "Main Academic Building",
-      description: "The central academic complex housing classrooms, labs, and faculty offices.",
-    },
-    {
-      id: "library",
-      name: "Central Library",
-      description: "State-of-the-art library with digital resources and study spaces.",
-    },
-    {
-      id: "hostel",
-      name: "International Student Hostel",
-      description: "Dedicated accommodation for international students with modern amenities.",
-    },
-    { id: "cafeteria", name: "Food Court", description: "Multi-cuisine food court offering diverse dining options." },
-    {
-      id: "sports",
-      name: "Sports Complex",
-      description: "Comprehensive sports facilities including indoor and outdoor courts.",
-    },
-  ]
-
-  const nextView = () => {
-    setCurrentView((prev) => (prev + 1) % panoramaViews.length)
-  }
-
-  const prevView = () => {
-    setCurrentView((prev) => (prev - 1 + panoramaViews.length) % panoramaViews.length)
-  }
+  const campusViewRef = useRef<HTMLElement>(null)
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-10 max-w-7xl">
@@ -50,95 +15,30 @@ export default function PanoramaPage() {
         </p>
       </div>
 
-      <Tabs defaultValue="panorama" className="w-full">
-        <TabsList className="grid w-full max-w-md grid-cols-2 mx-auto">
-          <TabsTrigger value="panorama">Panoramic Views</TabsTrigger>
-          <TabsTrigger value="list">Location List</TabsTrigger>
-        </TabsList>
-        <TabsContent value="panorama" className="mt-6">
-          <div className="relative w-full h-[500px] bg-gray-100 rounded-lg overflow-hidden">
-            {/* This would be replaced with an actual 360° panorama viewer in production */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center max-w-md mx-auto px-4">
-                <Building className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-medium mb-2">{panoramaViews[currentView].name}</h3>
-                <p className="text-gray-500 mb-6">{panoramaViews[currentView].description}</p>
-                <Button>View in Full Screen</Button>
-              </div>
-            </div>
-
-            {/* Navigation controls */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-              <Button variant="outline" size="icon" onClick={prevView}>
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <div className="bg-white/90 px-3 py-1 rounded-full text-sm">
-                {currentView + 1} / {panoramaViews.length}
-              </div>
-              <Button variant="outline" size="icon" onClick={nextView}>
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-
-            {/* Additional controls */}
-            <div className="absolute top-4 right-4 flex gap-2">
-              <Button variant="outline" size="icon" className="bg-white/90">
-                <Info className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="icon" className="bg-white/90">
-                <Maximize2 className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Thumbnail navigation */}
-          <div className="grid grid-cols-5 gap-2 mt-4 max-w-2xl mx-auto">
-            {panoramaViews.map((view, index) => (
-              <div
-                key={view.id}
-                className={`cursor-pointer rounded-md overflow-hidden border-2 transition-colors ${
-                  index === currentView ? "border-blue-500" : "border-transparent hover:border-gray-300"
-                }`}
-                onClick={() => setCurrentView(index)}
-              >
-                <div className="bg-gray-200 h-16 flex items-center justify-center">
-                  <Building className="h-6 w-6 text-gray-500" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </TabsContent>
-        <TabsContent value="list" className="mt-6">
-          <div className="grid gap-4 max-w-4xl mx-auto">
-            {panoramaViews.map((view, index) => (
-              <Card key={view.id} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="p-4 flex items-start gap-4">
-                    <div className="bg-gray-200 p-4 rounded-md flex-shrink-0">
-                      <Building className="h-8 w-8 text-gray-500" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-medium mb-1">{view.name}</h3>
-                      <p className="text-sm text-gray-500 mb-3">{view.description}</p>
-                      <Button
-                        size="sm"
-                        onClick={() => {
-                          setCurrentView(index)
-                          document
-                            .querySelector('[value="panorama"]')
-                            ?.dispatchEvent(new MouseEvent("click", { bubbles: true }))
-                        }}
-                      >
-                        View Panorama
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
-      </Tabs>
+      {/* 360 Degree View Section */}
+      <section ref={campusViewRef} className="py-12 px-4 bg-background flex flex-col items-center">
+        <h2 className="text-2xl font-bold mb-2 text-center">360° Campus View</h2>
+      
+        <div className="w-full max-w-4xl">
+          <StreetViewLevels
+            height={420}
+            levels={[
+              // Tip: Click each level; the resolved pano ID is shown below the viewer. Share those to lock in exact panoIds.
+              { id: 'L1', label: 'Dome', position: { lat: 26.844071, lng: 75.565228 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755535881817!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQzhxNVhCYnc.!2m2!1d26.84407091446291!2d75.56522833275928!3f30.98!4f4.6299999999999955!5f0.5970117501821992' },
+              { id: 'Library', label: 'Library', position: { lat: 26.8440607, lng: 75.5652878 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755534163449!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQzhxNVhaTWc.!2m2!1d26.84406065003139!2d75.56528784853882!3f202.2794505640211!4f-3.185439736735333!5f0.7820865974627469' },
+              { id: 'AB1', label: 'AB1', position: { lat: 26.84409899371046, lng: 75.56513888138585 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755536705351!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQzhxNDJYT3c.!2m2!1d26.84409899371046!2d75.56513888138585!3f179.8570992173503!4f4.159413701647793!5f0.4000000000000002' },
+              { id: 'AB2', label: 'AB2', position: { lat: 26.84409899371046, lng: 75.56513888138585 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755536705351!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQzhxNDJYT3c.!2m2!1d26.84409899371046!2d75.56513888138585!3f179.8570992173503!4f4.159413701647793!5f0.4000000000000002' },
+              { id: 'AIC', label: 'AIC', position: { lat: 26.84385521744164, lng: 75.56523428433832 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755537330235!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQzhxLVdrMlFF!2m2!1d26.84385521744164!2d75.56523428433832!3f39.56364515148488!4f-10.239939263007102!5f0.7820865974627469' },
+              { id: 'ConferenceRoom', label: 'Conference room', position: { lat: 26.84385433771263, lng: 75.5652359720995 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755537377068!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQzhxXzN3Z1FF!2m2!1d26.84385433771263!2d75.5652359720995!3f352.4658820364628!4f0.1660954161468169!5f0.7820865974627469' },
+              { id: 'Finance', label: 'Finance', position: { lat: 26.84388215573711, lng: 75.56523384019064 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755537436240!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQzhxOTM1YVE.!2m2!1d26.84388215573711!2d75.56523384019064!3f352.99579179300775!4f-16.208577209374965!5f0.7820865974627469' },
+              { id: 'Gym', label: 'Gym', position: { lat: 26.84388183829127, lng: 75.56522993169098 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755537469687!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQzhxOTM1Ymc.!2m2!1d26.84388183829127!2d75.56522993169098!3f25.33257048692999!4f-18.64588226498482!5f0.7820865974627469' },
+              { id: 'OldMess', label: 'Old mess', position: { lat: 26.844071, lng: 75.565228 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755535881817!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQzhxNVhCYnc.!2m2!1d26.84407091446291!2d75.56522833275928!3f30.98!4f4.6299999999999955!5f0.5970117501821992' },
+              { id: 'GameRoom', label: 'Game room', position: { lat: 26.84385521744164, lng: 75.56523428433832 }, embedSrc: 'https://www.google.com/maps/embed?pb=!4v1755536246831!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQzhxOTM1S1E.!2m2!1d26.84385521744164!2d75.56523428433832!3f0.05917622296095715!4f-6.501571231872646!5f0.7820865974627469' },
+            ]}
+            initialLevelId="L1"
+          />
+        </div>
+      </section>
     </div>
   )
 }

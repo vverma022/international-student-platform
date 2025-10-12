@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { MapPin, Navigation, School, Home, Coffee, Book, Utensils } from "lucide-react"
+import { GoogleMap } from "@/components/ui/google-map"
 
 export default function MapPage() {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
@@ -45,11 +46,27 @@ export default function MapPage() {
   return (
     <div className="container mx-auto px-4 md:px-6 py-10 max-w-7xl">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Interactive Campus Map</h1>
-        <p className="text-gray-500">
-          Explore Manipal University Jaipur campus with our interactive map. Click on markers to learn more about each
-          location.
-        </p>
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Interactive Campus Map</h1>
+            <p className="text-gray-500">
+              Explore Manipal University Jaipur campus with our interactive map. Click on markers to learn more about each
+              location.
+            </p>
+          </div>
+          <Button 
+            className="bg-blue-500 hover:bg-blue-600 text-white flex items-center gap-2"
+            onClick={(e) => {
+              e.preventDefault()
+              // OSRM demo URL with MUJ coordinates as center
+              const osrmUrl = `https://map.project-osrm.org/?z=17&center=26.842495%2C75.564561&loc=&loc=&hl=en&alt=0&srv=2`
+              window.open(osrmUrl, '_blank')
+            }}
+          >
+            <Navigation className="h-4 w-4" />
+            Get Directions
+          </Button>
+        </div>
       </div>
 
       <Tabs defaultValue="map" className="w-full">
@@ -58,34 +75,12 @@ export default function MapPage() {
           <TabsTrigger value="list">List View</TabsTrigger>
         </TabsList>
         <TabsContent value="map" className="mt-6">
-          <div className="relative w-full h-[600px] bg-gray-100 rounded-lg overflow-hidden">
-            {/* This would be replaced with an actual map component in production */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center max-w-md mx-auto px-4">
-                <p className="text-gray-500 mb-4">
-                  Interactive map would be implemented here using a mapping library like Leaflet or Google Maps API
-                </p>
-                <Button>View Full Screen</Button>
-              </div>
-            </div>
-
-            {/* Sample map markers */}
-            {locations.map((location) => (
-              <Button
-                key={location.id}
-                variant="outline"
-                size="icon"
-                className={`absolute rounded-full ${getPositionClass(location.id)}`}
-                onClick={() => setSelectedLocation(location.id)}
-              >
-                <MapPin className="h-4 w-4" />
-                <span className="sr-only">{location.name}</span>
-              </Button>
-            ))}
-
+          <div className="relative">
+            <GoogleMap height={600} />
+            
             {/* Location info card */}
             {selectedLocation && (
-              <Card className="absolute bottom-4 left-4 w-80">
+              <Card className="absolute bottom-4 left-4 w-80 z-10">
                 <CardContent className="p-4">
                   <div className="flex items-center gap-2 mb-2">
                     {locations.find((l) => l.id === selectedLocation)?.icon}
@@ -95,10 +90,6 @@ export default function MapPage() {
                     {locations.find((l) => l.id === selectedLocation)?.description}
                   </p>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="flex items-center gap-1">
-                      <Navigation className="h-3 w-3" />
-                      Directions
-                    </Button>
                     <Button size="sm" variant="outline">
                       More Info
                     </Button>
@@ -119,10 +110,6 @@ export default function MapPage() {
                       <h3 className="font-medium mb-1">{location.name}</h3>
                       <p className="text-sm text-gray-500 mb-3">{location.description}</p>
                       <div className="flex gap-2">
-                        <Button size="sm" variant="outline" className="flex items-center gap-1">
-                          <Navigation className="h-3 w-3" />
-                          Directions
-                        </Button>
                         <Button size="sm" variant="outline">
                           More Info
                         </Button>
@@ -137,22 +124,4 @@ export default function MapPage() {
       </Tabs>
     </div>
   )
-}
-
-// Helper function to position markers on the map
-function getPositionClass(id: string): string {
-  switch (id) {
-    case "admin":
-      return "top-1/4 left-1/2 transform -translate-x-1/2"
-    case "hostel":
-      return "top-1/3 right-1/4"
-    case "library":
-      return "bottom-1/3 left-1/3"
-    case "cafeteria":
-      return "bottom-1/4 right-1/3"
-    case "cafe":
-      return "top-1/2 left-1/4"
-    default:
-      return ""
-  }
 }
