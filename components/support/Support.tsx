@@ -29,8 +29,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { LifeBuoy, MessageSquare, Phone, Mail, Clock, CheckCircle2 } from "lucide-react"
+import { LifeBuoy, MessageSquare, Phone, Mail, Clock, CheckCircle2, Loader2 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { toast } from "sonner"
 
 /**
  * Animation variants for stagger effects
@@ -63,18 +64,63 @@ export default function Support() {
   const [supportCategory, setSupportCategory] = useState("visa")
   const [supportMessage, setSupportMessage] = useState("")
   const [supportEmail, setSupportEmail] = useState("")
-  const [supportSubmitted, setSupportSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmitSupport = (e: React.FormEvent) => {
+  /**
+   * Handle support form submission
+   * Sends email via API and shows toast notifications
+   */
+  const handleSubmitSupport = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (supportMessage && supportEmail) {
-      // In a real app, this would send the support request to a backend
-      setSupportSubmitted(true)
-      setTimeout(() => {
-        setSupportSubmitted(false)
+    
+    if (!supportMessage || !supportEmail) {
+      toast.error('Please fill in all required fields')
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/send-support-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          category: supportCategory,
+          email: supportEmail,
+          message: supportMessage,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        // Success toast
+        toast.success('Support request sent successfully!', {
+          description: 'Our team will get back to you soon.',
+          duration: 5000,
+        })
+        
+        // Reset form
         setSupportMessage("")
         setSupportEmail("")
-      }, 3000)
+        setSupportCategory("visa")
+      } else {
+        // Error toast
+        toast.error('Failed to send support request', {
+          description: data.error || 'Please try again later',
+          duration: 5000,
+        })
+      }
+    } catch (error) {
+      console.error('Error submitting support request:', error)
+      toast.error('Network error', {
+        description: 'Please check your connection and try again',
+        duration: 5000,
+      })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -244,21 +290,25 @@ export default function Support() {
 
                         <div className="flex justify-end">
                           <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            whileHover={!isSubmitting ? { scale: 1.05 } : {}}
+                            whileTap={!isSubmitting ? { scale: 0.95 } : {}}
                           >
-                            <Button type="submit" disabled={supportSubmitted} className="shadow-lg shadow-primary/20">
+                            <Button 
+                              type="submit" 
+                              disabled={isSubmitting} 
+                              className="shadow-lg shadow-primary/20 min-w-[160px]"
+                            >
                               <AnimatePresence mode="wait">
-                                {supportSubmitted ? (
+                                {isSubmitting ? (
                                   <motion.span 
-                                    key="submitted"
+                                    key="submitting"
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.8 }}
                                     className="flex items-center gap-2"
                                   >
-                                    <CheckCircle2 className="h-4 w-4" />
-                                    {t('form.submittedButton')}
+                                    <Loader2 className="h-4 w-4 animate-spin" />
+                                    Sending...
                                   </motion.span>
                                 ) : (
                                   <motion.span

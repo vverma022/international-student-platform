@@ -4,6 +4,7 @@ import { getMessages } from 'next-intl/server';
 import { locales } from '@/i18n/config';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Toaster } from '@/components/ui/sonner';
 
 type Props = {
   children: React.ReactNode;
@@ -36,6 +37,7 @@ export default async function LocaleLayout({
         </main>
 
         <Footer />
+        <Toaster position="top-right" richColors />
       </div>
     </NextIntlClientProvider>
   );
