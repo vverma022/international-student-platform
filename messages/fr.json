@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "badge": "Bienvenue aux étudiants internationaux",
+    "title": "Votre passerelle vers",
+    "titleHighlight": "l'expérience MUJ",
+    "description": "Naviguez votre parcours d'étudiant international en toute confiance.",
+    "descriptionSecondary": "Tout ce dont vous avez besoin, au même endroit.",
+    "ctaVirtualTours": "Visites virtuelles",
+    "ctaFaq": "Parcourir la FAQ"
+  },
+  "features": {
+    "sectionTitle": "Tout ce dont vous avez besoin",
+    "sectionDescription": "Des outils et ressources complets pour rendre votre transition vers MUJ fluide et réussie",
+    "virtualTours": {
+      "title": "Visites virtuelles du campus",
+      "description": "Découvrez avant d'arriver",
+      "content": "Visites virtuelles immersives des bâtiments et installations, vous permettant de vous familiariser avec l'environnement du campus.",
+      "linkText": "Faire une visite"
+    },
+    "faq": {
+      "title": "FAQ complète",
+      "description": "Trouvez des réponses instantanément",
+      "content": "Base de connaissances étendue avec des questions et réponses consultables couvrant tous les aspects de la vie étudiante internationale.",
+      "linkText": "Voir les FAQ"
+    },
+    "support": {
+      "title": "Support spécialisé",
+      "description": "Aide pour situations uniques",
+      "content": "Service d'assistance dédié pour aider les étudiants dans des situations non standard et des défis complexes.",
+      "linkText": "Obtenir de l'aide"
+    },
+    "documents": {
+      "title": "Guides de documentation",
+      "description": "Assistance étape par étape",
+      "content": "Instructions détaillées et listes de contrôle pour obtenir les documents requis, les certificats et compléter les formalités.",
+      "linkText": "Voir les guides"
+    }
+  },
+  "header": {
+    "home": "Accueil",
+    "virtualTours": "Visites virtuelles",
+    "faq": "FAQ",
+    "support": "Support",
+    "documents": "Documents",
+    "branding": "MUJ International"
+  },
+  "footer": {
+    "university": "Université Manipal Jaipur",
+    "platform": "Plateforme étudiants internationaux",
+    "terms": "Conditions",
+    "privacy": "Confidentialité",
+    "contact": "Contact",
+    "copyright": "Université Manipal Jaipur. Tous droits réservés."
+  },
+  "metadata": {
+    "home": {
+      "title": "MUJ International - Votre passerelle vers la réussite étudiante",
+      "description": "Naviguez votre parcours d'étudiant international à l'Université Manipal Jaipur en toute confiance. Accédez aux plans du campus, visites virtuelles, FAQ et services de support essentiels."
+    },
+    "faq": {
+      "title": "FAQ - Plateforme étudiants internationaux MUJ",
+      "description": "Questions fréquemment posées sur les études à l'Université Manipal Jaipur en tant qu'étudiant international."
+    },
+    "virtualTours": {
+      "title": "Visites virtuelles - MUJ International",
+      "description": "Faites des visites virtuelles immersives des installations et bâtiments du campus de l'Université Manipal Jaipur."
+    },
+    "support": {
+      "title": "Support - MUJ International",
+      "description": "Obtenez un support spécialisé pour vos situations et défis uniques en tant qu'étudiant international."
+    },
+    "documents": {
+      "title": "Documentation - MUJ International",
+      "description": "Guides étape par étape pour obtenir les documents requis et compléter les formalités."
+    }
+  },
+  "virtualTours": {
+    "title": "Visites virtuelles du campus",
+    "description": "Explorez notre campus de partout dans le monde",
+    "mapTab": "Carte 3D",
+    "locationsTab": "Emplacements",
+    "interactiveMap": "Carte interactive du campus",
+    "clickMarkers": "Cliquez sur les marqueurs pour explorer différents emplacements du campus",
+    "actions": "Actions",
+    "streetView": "Vue de rue",
+    "virtualTour": "Visite virtuelle",
+    "getDirections": "Obtenir l'itinéraire",
+    "viewOnMap": "Voir sur la carte",
+    "categories": {
+      "academic": "Académique",
+      "dining": "Restauration",
+      "residential": "Résidentiel",
+      "administrative": "Administratif"
+    }
+  }
+}

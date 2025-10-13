@@ -1,29 +1,12 @@
-/**
- * Hero Section Component with Framer Motion Animations
- * 
- * Enhanced with:
- * - Smooth fade-in and slide animations using framer-motion
- * - Depth effects with layered backgrounds
- * - Responsive design for all screen sizes
- * - Interactive hover effects
- * 
- * Animation Strategy:
- * - Sequential reveal of elements (badge → title → description → buttons)
- * - Staggered animations for visual interest
- * - Subtle floating animation for depth
- */
-
 "use client"
 
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
 
-/**
- * Animation variants for consistent motion design
- */
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
@@ -43,9 +26,10 @@ const scaleIn = {
 }
 
 export function HeroSection() {
+  const t = useTranslations('hero');
+
   return (
     <section className="relative w-full min-h-[90vh] overflow-hidden bg-background">
-      {/* Animated gradient background orbs for depth effect */}
       <motion.div 
         className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl opacity-40 -translate-y-1/2 translate-x-1/4"
         animate={{ 
@@ -73,8 +57,6 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col items-center justify-center min-h-[90vh] text-center">
-        
-        {/* Welcome badge with scale-in animation */}
         <motion.div
           {...scaleIn}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -84,38 +66,35 @@ export function HeroSection() {
             className="mb-8 px-5 py-2.5 text-sm gap-2 shadow-[0_4px_20px_-4px] shadow-primary/20"
           >
             <Sparkles className="w-4 h-4" />
-            <span>Welcome International Students</span>
+            <span>{t('badge')}</span>
           </Badge>
         </motion.div>
 
-        {/* Main heading with staggered word reveal */}
         <motion.h1 
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-6 leading-[1.1]"
           {...fadeInUp}
           transition={{ delay: 0.3, duration: 0.7 }}
         >
-          Your Gateway to
+          {t('title')}
           <motion.span 
             className="block mt-2 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.7 }}
           >
-            MUJ Experience
+            {t('titleHighlight')}
           </motion.span>
         </motion.h1>
 
-        {/* Description paragraph */}
         <motion.p 
           className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed font-light"
           {...fadeInUp}
           transition={{ delay: 0.7, duration: 0.6 }}
         >
-          Navigate your international student journey with confidence. 
-          <span className="block mt-2">Everything you need, all in one place.</span>
+          {t('description')}
+          <span className="block mt-2">{t('descriptionSecondary')}</span>
         </motion.p>
 
-        {/* Call-to-action buttons with hover animations */}
         <motion.div 
           className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0"
           {...fadeInUp}
@@ -132,7 +111,7 @@ export function HeroSection() {
               className="group w-full shadow-[0_8px_30px_-6px] shadow-primary/30 hover:shadow-primary/40 transition-shadow duration-300"
             >
               <Link href="/panorama" className="flex items-center justify-center gap-2">
-                Virtual Tours
+                {t('ctaVirtualTours')}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -150,7 +129,7 @@ export function HeroSection() {
               className="group w-full shadow-[0_8px_30px_-6px] shadow-black/10 hover:shadow-black/20 transition-shadow duration-300"
             >
               <Link href="/faq" className="flex items-center justify-center gap-2">
-                Browse FAQ
+                {t('ctaFaq')}
               </Link>
             </Button>
           </motion.div>

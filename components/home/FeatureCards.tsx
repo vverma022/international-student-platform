@@ -1,19 +1,3 @@
-/**
- * Feature Card Component with Framer Motion
- * 
- * Enhanced individual feature card with:
- * - Smooth hover animations and depth effects
- * - Card lift effect on hover with shadow changes
- * - Icon animation on hover
- * - Responsive design for all screen sizes
- * 
- * Animation Strategy:
- * - Card scales and lifts on hover
- * - Icon rotates and scales slightly
- * - Button arrow slides on hover
- * - Smooth transitions throughout
- */
-
 "use client"
 
 import Link from "next/link"
@@ -29,21 +13,9 @@ interface FeatureCardProps {
   content: string
   link: string
   linkText: string
-  index?: number // For stagger animation from parent
+  index?: number
 }
 
-/**
- * Feature Card Component
- * Displays a single feature with icon, title, description, and CTA button
- * 
- * @param icon - Icon element to display
- * @param title - Feature title
- * @param description - Short feature description
- * @param content - Detailed feature content
- * @param link - Navigation link for the feature
- * @param linkText - Text for the CTA button
- * @param index - Card index for stagger animations
- */
 export function FeatureCard({ 
   icon, 
   title, 
@@ -70,7 +42,6 @@ export function FeatureCard({
       className="h-full"
     >
       <Card className="h-full flex flex-col group relative overflow-hidden border-2 hover:border-primary/50 transition-colors duration-300 shadow-[0_2px_10px_-3px] shadow-black/10 hover:shadow-[0_20px_40px_-10px] hover:shadow-primary/20">
-        {/* Subtle gradient overlay that appears on hover */}
         <motion.div 
           className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         />

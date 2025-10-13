@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "badge": "Welcome International Students",
+    "title": "Your Gateway to",
+    "titleHighlight": "MUJ Experience",
+    "description": "Navigate your international student journey with confidence.",
+    "descriptionSecondary": "Everything you need, all in one place.",
+    "ctaVirtualTours": "Virtual Tours",
+    "ctaFaq": "Browse FAQ"
+  },
+  "features": {
+    "sectionTitle": "Everything You Need",
+    "sectionDescription": "Comprehensive tools and resources to make your transition to MUJ smooth and successful",
+    "virtualTours": {
+      "title": "Virtual Campus Tours",
+      "description": "Experience before arrival",
+      "content": "Immersive virtual tours of buildings and facilities, allowing you to familiarize yourself with the campus environment.",
+      "linkText": "Take a Tour"
+    },
+    "faq": {
+      "title": "Comprehensive FAQ",
+      "description": "Find answers instantly",
+      "content": "Extensive knowledge base with searchable questions and answers covering all aspects of international student life.",
+      "linkText": "View FAQs"
+    },
+    "support": {
+      "title": "Specialized Support",
+      "description": "Help for unique situations",
+      "content": "Dedicated support service to assist students with non-standard situations and complex challenges.",
+      "linkText": "Get Support"
+    },
+    "documents": {
+      "title": "Documentation Guides",
+      "description": "Step-by-step assistance",
+      "content": "Detailed instructions and checklists for obtaining required documents, certificates, and completing formalities.",
+      "linkText": "View Guides"
+    }
+  },
+  "header": {
+    "home": "Home",
+    "virtualTours": "Virtual Tours",
+    "faq": "FAQ",
+    "support": "Support",
+    "documents": "Documents",
+    "branding": "MUJ International"
+  },
+  "footer": {
+    "university": "Manipal University Jaipur",
+    "platform": "International Student Platform",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "contact": "Contact",
+    "copyright": "Manipal University Jaipur. All rights reserved."
+  },
+  "virtualTours": {
+    "title": "Virtual Campus Tours",
+    "description": "Explore our campus from anywhere in the world",
+    "mapTab": "3D Map",
+    "locationsTab": "Locations",
+    "interactiveMap": "Interactive Campus Map",
+    "clickMarkers": "Click on markers to explore different campus locations",
+    "actions": "Actions",
+    "streetView": "Street View",
+    "virtualTour": "Virtual Tour",
+    "getDirections": "Get Directions",
+    "viewOnMap": "View on Map",
+    "categories": {
+      "academic": "Academic",
+      "dining": "Dining",
+      "residential": "Residential",
+      "administrative": "Administrative"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "MUJ International - Your Gateway to Student Success",
+      "description": "Navigate your international student journey at Manipal University Jaipur with confidence. Access campus maps, virtual tours, FAQs, and essential support services."
+    },
+    "faq": {
+      "title": "FAQ - MUJ International Student Platform",
+      "description": "Frequently asked questions about studying at Manipal University Jaipur as an international student."
+    },
+    "virtualTours": {
+      "title": "Virtual Tours - MUJ International",
+      "description": "Take immersive virtual tours of Manipal University Jaipur campus facilities and buildings."
+    },
+    "support": {
+      "title": "Support - MUJ International",
+      "description": "Get specialized support for your unique situations and challenges as an international student."
+    },
+    "documents": {
+      "title": "Documentation - MUJ International",
+      "description": "Step-by-step guides for obtaining required documents and completing formalities."
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "badge": "Bienvenidos estudiantes internacionales",
+    "title": "Tu puerta de entrada a",
+    "titleHighlight": "la experiencia MUJ",
+    "description": "Navega tu viaje como estudiante internacional con confianza.",
+    "descriptionSecondary": "Todo lo que necesitas, en un solo lugar.",
+    "ctaVirtualTours": "Tours virtuales",
+    "ctaFaq": "Explorar FAQ"
+  },
+  "features": {
+    "sectionTitle": "Todo lo que necesitas",
+    "sectionDescription": "Herramientas y recursos completos para hacer tu transición a MUJ fluida y exitosa",
+    "virtualTours": {
+      "title": "Tours virtuales del campus",
+      "description": "Experimenta antes de llegar",
+      "content": "Tours virtuales inmersivos de edificios e instalaciones, permitiéndote familiarizarte con el entorno del campus.",
+      "linkText": "Hacer un tour"
+    },
+    "faq": {
+      "title": "FAQ completo",
+      "description": "Encuentra respuestas al instante",
+      "content": "Amplia base de conocimientos con preguntas y respuestas buscables que cubren todos los aspectos de la vida estudiantil internacional.",
+      "linkText": "Ver FAQs"
+    },
+    "support": {
+      "title": "Soporte especializado",
+      "description": "Ayuda para situaciones únicas",
+      "content": "Servicio de soporte dedicado para asistir a estudiantes con situaciones no estándar y desafíos complejos.",
+      "linkText": "Obtener soporte"
+    },
+    "documents": {
+      "title": "Guías de documentación",
+      "description": "Asistencia paso a paso",
+      "content": "Instrucciones detalladas y listas de verificación para obtener documentos requeridos, certificados y completar formalidades.",
+      "linkText": "Ver guías"
+    }
+  },
+  "header": {
+    "home": "Inicio",
+    "virtualTours": "Tours virtuales",
+    "faq": "FAQ",
+    "support": "Soporte",
+    "documents": "Documentos",
+    "branding": "MUJ International"
+  },
+  "footer": {
+    "university": "Universidad Manipal Jaipur",
+    "platform": "Plataforma estudiantes internacionales",
+    "terms": "Términos",
+    "privacy": "Privacidad",
+    "contact": "Contacto",
+    "copyright": "Universidad Manipal Jaipur. Todos los derechos reservados."
+  },
+  "metadata": {
+    "home": {
+      "title": "MUJ International - Tu puerta de entrada al éxito estudiantil",
+      "description": "Navega tu viaje como estudiante internacional en la Universidad Manipal Jaipur con confianza. Accede a mapas del campus, tours virtuales, FAQs y servicios de soporte esenciales."
+    },
+    "faq": {
+      "title": "FAQ - Plataforma estudiantes internacionales MUJ",
+      "description": "Preguntas frecuentes sobre estudiar en la Universidad Manipal Jaipur como estudiante internacional."
+    },
+    "virtualTours": {
+      "title": "Tours virtuales - MUJ International",
+      "description": "Realiza tours virtuales inmersivos de las instalaciones y edificios del campus de la Universidad Manipal Jaipur."
+    },
+    "support": {
+      "title": "Soporte - MUJ International",
+      "description": "Obtén soporte especializado para tus situaciones y desafíos únicos como estudiante internacional."
+    },
+    "documents": {
+      "title": "Documentación - MUJ International",
+      "description": "Guías paso a paso para obtener documentos requeridos y completar formalidades."
+    }
+  },
+  "virtualTours": {
+    "title": "Tours virtuales del campus",
+    "description": "Explora nuestro campus desde cualquier parte del mundo",
+    "mapTab": "Mapa 3D",
+    "locationsTab": "Ubicaciones",
+    "interactiveMap": "Mapa interactivo del campus",
+    "clickMarkers": "Haz clic en los marcadores para explorar diferentes ubicaciones del campus",
+    "actions": "Acciones",
+    "streetView": "Vista de calle",
+    "virtualTour": "Tour virtual",
+    "getDirections": "Obtener direcciones",
+    "viewOnMap": "Ver en el mapa",
+    "categories": {
+      "academic": "Académico",
+      "dining": "Comedor",
+      "residential": "Residencial",
+      "administrative": "Administrativo"
+    }
+  }
+}

@@ -1,46 +1,16 @@
-/**
- * Header Component with Framer Motion & Mobile Menu
- * 
- * Enhanced navigation header with:
- * - Smooth animations for logo and nav items
- * - Active route highlighting with animated underline
- * - Fully responsive mobile menu drawer
- * - Glassmorphism effect with backdrop blur
- * - Stagger animations for navigation items
- * 
- * Animation Strategy:
- * - Desktop nav items fade in with stagger
- * - Mobile menu slides in from right
- * - Active indicators animate smoothly
- * - Logo has subtle hover effect
- */
-
 "use client"
 
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
+import { usePathname, useParams } from "next/navigation"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
-/**
- * Navigation links configuration
- * Centralized array for easy maintenance and consistency
- */
-const navigationLinks = [
-  { href: "/", label: "Home" },
-  { href: "/panorama", label: "Virtual Tours" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/support", label: "Support" },
-  { href: "/documents", label: "Documents" }
-]
 
-/**
- * Animation variants for mobile menu
- */
 const menuVariants = {
   closed: {
     x: "100%",
@@ -73,22 +43,26 @@ const menuItemVariants = {
 }
 
 export function Header() {
-  // Get current pathname to highlight active route
   const pathname = usePathname()
+  const params = useParams()
+  const locale = params.locale as string
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  
+  const t = useTranslations('header');
 
-  /**
-   * Check if a link is active
-   * Exact match for home, starts with for other pages
-   */
+  const navigationLinks = [
+    { href: `/${locale}`, label: t('home') },
+    { href: `/${locale}/panorama`, label: t('virtualTours') },
+    { href: `/${locale}/faq`, label: t('faq') },
+    { href: `/${locale}/support`, label: t('support') },
+    { href: `/${locale}/documents`, label: t('documents') }
+  ]
+
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/"
+    if (href === `/${locale}`) return pathname === `/${locale}`
     return pathname.startsWith(href)
   }
 
-  /**
-   * Close mobile menu when a link is clicked
-   */
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false)
   }
@@ -102,8 +76,7 @@ export function Header() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4 md:px-6">
-          {/* Logo and branding section */}
-          <Link href="/" className="flex items-center gap-2 md:gap-3 group">
+          <Link href={`/${locale}`} className="flex items-center gap-2 md:gap-3 group">
             <motion.div
               whileHover={{ scale: 1.05, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
@@ -118,11 +91,10 @@ export function Header() {
               />
             </motion.div>
             <span className="text-lg md:text-2xl font-semibold text-foreground tracking-tight">
-              MUJ International
+              {t('branding')}
             </span>
           </Link>
 
-          {/* Desktop navigation menu */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {navigationLinks.map((link, index) => (
               <motion.div
@@ -141,7 +113,6 @@ export function Header() {
                   )}
                 >
                   {link.label}
-                  {/* Animated underline effect - solid for active, animated on hover */}
                   <motion.span 
                     className="absolute -bottom-1 left-0 h-0.5 bg-primary"
                     initial={{ width: isActive(link.href) ? "100%" : 0 }}
@@ -153,7 +124,6 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Mobile menu button */}
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -175,11 +145,9 @@ export function Header() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
               initial={{ opacity: 0 }}
@@ -188,7 +156,6 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
-            {/* Mobile Menu Panel */}
             <motion.div
               className="fixed top-16 right-0 bottom-0 w-[280px] bg-background border-l border-border shadow-2xl z-50 md:hidden overflow-y-auto"
               variants={menuVariants}
@@ -222,7 +189,6 @@ export function Header() {
                 ))}
               </nav>
 
-              {/* Mobile menu footer */}
               <motion.div 
                 className="absolute bottom-0 left-0 right-0 p-6 border-t border-border bg-muted/30"
                 initial={{ opacity: 0, y: 20 }}
@@ -230,7 +196,7 @@ export function Header() {
                 transition={{ delay: 0.5 }}
               >
                 <p className="text-sm text-muted-foreground text-center">
-                  © {new Date().getFullYear()} MUJ International
+                  © {new Date().getFullYear()} {t('branding')}
                 </p>
               </motion.div>
             </motion.div>
