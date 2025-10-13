@@ -18,6 +18,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -73,61 +74,64 @@ const itemVariants = {
 }
 
 export default function FAQ() {
+  const t = useTranslations('faq')
   const [searchQuery, setSearchQuery] = useState("")
   const [newQuestion, setNewQuestion] = useState("")
   const [newAnswer, setNewAnswer] = useState("")
   const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+  /**
+   * Get translated category name
+   */
+  const getCategoryName = (category: string) => {
+    const categoryKey = category.replace(/\s+/g, '')
+    const key = categoryKey === 'hostelandcampus' ? 'hostelAndCampus' : categoryKey
+    return t(`categories.${key}` as any) || category
+  }
   
-  // Initial FAQ data
+  // Get translated FAQ data
   const initialFAQs = [
     {
       id: "1",
-      question: "How do I apply for a student visa for India?",
-      answer:
-        "You can apply for a Student Visa or PIO or OCI at your nearest Indian Embassy or Consulate. You will need to submit the admission confirmation letter issued by the Director, Admissions, Manipal University Jaipur.",
-      category: "visa",
+      question: t('questions.q1.question'),
+      answer: t('questions.q1.answer'),
+      category: t('questions.q1.category'),
     },
     {
       id: "2",
-      question: "What documents do I need to bring for university registration?",
-      answer:
-        "For university registration, you need to bring your passport with valid visa, admission letter, original academic certificates and transcripts, medical fitness certificate, passport-sized photographs, and proof of fee payment. It's also recommended to bring multiple photocopies of all these documents.",
-      category: "documents",
+      question: t('questions.q2.question'),
+      answer: t('questions.q2.answer'),
+      category: t('questions.q2.category'),
     },
     {
       id: "3",
-      question: "How can I open a bank account in India as an international student?",
-      answer:
-        "To open a bank account in India as an international student, you'll need your passport, valid visa, university ID card, proof of address (university hostel letter works), and a reference letter from the International Student Office. Most banks near the campus offer special student accounts with minimal documentation.",
-      category: "banking",
+      question: t('questions.q3.question'),
+      answer: t('questions.q3.answer'),
+      category: t('questions.q3.category'),
     },
     {
       id: "4",
-      question: "What healthcare facilities are available on campus?",
-      answer:
-        "Manipal University Jaipur has a comprehensive health center on campus with general physicians available 24/7. For specialized care, the university has a tie-up with Manipal Hospitals. The campus health center can provide basic medications, first aid, and referrals to specialists when needed.",
-      category: "health",
+      question: t('questions.q4.question'),
+      answer: t('questions.q4.answer'),
+      category: t('questions.q4.category'),
     },
     {
       id: "5",
-      question: "How do I extend my visa if needed?",
-      answer:
-        "To extend your visa, you need to apply through the FRRO (Foreigners Regional Registration Office) portal. You'll need a letter from the university confirming your continued enrollment, your passport, current visa details, and proof of financial means. The International Student Office can guide you through this process.",
-      category: "visa",
+      question: t('questions.q5.question'),
+      answer: t('questions.q5.answer'),
+      category: t('questions.q5.category'),
     },
     {
       id: "6",
-      question: "What are the attendance rules and minimum percentage required?",
-      answer:
-        "A minimum of 75% attendance is mandatory to be eligible for examinations. Falling below this threshold will result in detainment, requiring you to re-register for the course credits, pay the associated fee again, and attend the same course in a future semester.",
-      category: "academics",
+      question: t('questions.q6.question'),
+      answer: t('questions.q6.answer'),
+      category: t('questions.q6.category'),
     },
     {
       id: "7",
-      question: "What are the hostel in-time rules?",
-      answer:
-        "Hostel in-time is 9:00 PM. In case of unavoidable situations, do call and inform any of the hostel wardens about your late arrival. Students can stay outside their rooms within the hostel premises until 11:00 PM. However, all students must return to their rooms by 11:00 PM.",
-      category: "hostel and campus",
+      question: t('questions.q7.question'),
+      answer: t('questions.q7.answer'),
+      category: t('questions.q7.category'),
     },
   ]
 
@@ -191,7 +195,7 @@ export default function FAQ() {
               <HelpCircle className="h-10 w-10 md:h-12 md:w-12 text-primary mb-4" />
             </motion.div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground">
-              Frequently Asked Questions
+              {t('title')}
             </h1>
           </div>
           <motion.p 
@@ -200,8 +204,7 @@ export default function FAQ() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Find answers to common questions about studying at Manipal University Jaipur as an international student. 
-            Can't find what you're looking for? Add your own question to help others!
+            {t('subtitle')}
           </motion.p>
         </motion.div>
 
@@ -216,7 +219,7 @@ export default function FAQ() {
             <div className="relative">
               <Search className="absolute left-3 md:left-4 top-1/2 h-4 w-4 md:h-5 md:w-5 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="Search FAQs by question, answer, or category..."
+                placeholder={t('searchPlaceholder')}
                 className="pl-10 md:pl-12 h-11 md:h-12 text-base md:text-lg focus-visible:ring-2 focus-visible:ring-primary transition-all duration-300"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -232,45 +235,45 @@ export default function FAQ() {
               >
                 <Button size="lg" className="flex items-center gap-2 w-full lg:w-auto shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-shadow duration-300">
                   <Plus className="h-4 w-4 md:h-5 md:w-5" />
-                  Add Question
+                  {t('addQuestion')}
                 </Button>
               </motion.div>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
-                <DialogTitle className="text-xl md:text-2xl font-semibold">Add a New FAQ</DialogTitle>
+                <DialogTitle className="text-xl md:text-2xl font-semibold">{t('dialog.title')}</DialogTitle>
                 <DialogDescription>
-                  Contribute to our knowledge base by adding a question and answer that might help other students.
+                  {t('dialog.description')}
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid gap-2">
                   <label htmlFor="question" className="text-sm font-medium text-foreground">
-                    Question
+                    {t('dialog.questionLabel')}
                   </label>
                   <Input
                     id="question"
                     value={newQuestion}
                     onChange={(e) => setNewQuestion(e.target.value)}
-                    placeholder="Enter your question here"
+                    placeholder={t('dialog.questionPlaceholder')}
                   />
                 </div>
                 <div className="grid gap-2">
                   <label htmlFor="answer" className="text-sm font-medium text-foreground">
-                    Answer
+                    {t('dialog.answerLabel')}
                   </label>
                   <Textarea
                     id="answer"
                     value={newAnswer}
                     onChange={(e) => setNewAnswer(e.target.value)}
-                    placeholder="Enter the answer here"
+                    placeholder={t('dialog.answerPlaceholder')}
                     rows={5}
                   />
                 </div>
               </div>
               <DialogFooter>
                 <Button onClick={handleAddFAQ} className="w-full sm:w-auto">
-                  Submit FAQ
+                  {t('dialog.submit')}
                 </Button>
               </DialogFooter>
             </DialogContent>
@@ -296,7 +299,7 @@ export default function FAQ() {
                     onClick={() => setSearchQuery("")}
                   >
                     <Users className="h-4 w-4 mr-2 md:mr-3 flex-shrink-0" />
-                    All Categories
+                    {t('allCategories')}
                   </Button>
                 </motion.div>
                 {categories.map((category) => {
@@ -305,11 +308,11 @@ export default function FAQ() {
                     <motion.div key={category} whileHover={{ x: 4 }} whileTap={{ scale: 0.98 }}>
                       <Button
                         variant={searchQuery === category ? "default" : "outline"}
-                        className="w-full justify-start h-10 md:h-12 text-left font-medium capitalize text-sm md:text-base"
+                        className="w-full justify-start h-10 md:h-12 text-left font-medium text-sm md:text-base"
                         onClick={() => setSearchQuery(category)}
                       >
                         <IconComponent className="h-4 w-4 mr-2 md:mr-3 flex-shrink-0" />
-                        <span className="truncate">{category}</span>
+                        <span className="truncate">{getCategoryName(category)}</span>
                       </Button>
                     </motion.div>
                   )
@@ -361,8 +364,8 @@ export default function FAQ() {
                                 {faq.answer}
                               </div>
                               <div className="mt-4 flex items-center">
-                                <span className="text-xs bg-accent text-foreground rounded-full px-3 py-1 capitalize font-medium">
-                                  {faq.category}
+                                <span className="text-xs bg-accent text-foreground rounded-full px-3 py-1 font-medium">
+                                  {getCategoryName(faq.category)}
                                 </span>
                               </div>
                             </motion.div>
@@ -388,8 +391,8 @@ export default function FAQ() {
                   >
                     <HelpCircle className="h-12 w-12 md:h-16 md:w-16 text-muted-foreground mx-auto mb-4" />
                   </motion.div>
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">No FAQs Found</h3>
-                  <p className="text-sm md:text-base text-muted-foreground mb-6">No FAQs found matching your search criteria.</p>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">{t('noResults')}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground mb-6">{t('noResultsDescription')}</p>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button 
                       variant="outline" 

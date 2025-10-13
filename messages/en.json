@@ -53,22 +53,144 @@
     "copyright": "Manipal University Jaipur. All rights reserved."
   },
   "virtualTours": {
-    "title": "Virtual Campus Tours",
-    "description": "Explore our campus from anywhere in the world",
-    "mapTab": "3D Map",
-    "locationsTab": "Locations",
-    "interactiveMap": "Interactive Campus Map",
-    "clickMarkers": "Click on markers to explore different campus locations",
-    "actions": "Actions",
-    "streetView": "Street View",
-    "virtualTour": "Virtual Tour",
-    "getDirections": "Get Directions",
-    "viewOnMap": "View on Map",
+    "title": "Campus Map",
+    "description": "Explore the Manipal University Jaipur campus layout",
+    "subtitle": "Use the interactive map to navigate and familiarize yourself with the campus geography",
+    "cardTitle": "Manipal University Jaipur - Campus Map",
+    "cardDescription": "Interactive map centered on MUJ campus in Dehmi Kalan, Jaipur. Zoom and pan to explore the campus area"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about international student life at MUJ",
+    "searchPlaceholder": "Search questions...",
+    "searchLabel": "Search FAQs",
+    "allCategories": "All Categories",
+    "noResults": "No FAQs found",
+    "noResultsDescription": "Try adjusting your search or filter",
+    "addQuestion": "Add New Question",
     "categories": {
-      "academic": "Academic",
-      "dining": "Dining",
-      "residential": "Residential",
-      "administrative": "Administrative"
+      "visa": "Visa & Immigration",
+      "documents": "Documents & Registration",
+      "banking": "Banking & Finance",
+      "health": "Health & Insurance",
+      "academics": "Academics",
+      "hostelAndCampus": "Hostel & Campus Life",
+      "general": "General Information"
+    },
+    "dialog": {
+      "title": "Add New FAQ",
+      "description": "Submit a new question to be added to our FAQ database",
+      "questionLabel": "Your Question",
+      "questionPlaceholder": "Enter your question here...",
+      "answerLabel": "Your Answer (Optional)",
+      "answerPlaceholder": "Enter your answer or leave blank for our team to respond...",
+      "cancel": "Cancel",
+      "submit": "Submit Question"
+    },
+    "questions": {
+      "q1": {
+        "question": "How do I apply for a student visa for India?",
+        "answer": "You can apply for a Student Visa or PIO or OCI at your nearest Indian Embassy or Consulate. You will need to submit the admission confirmation letter issued by the Director, Admissions, Manipal University Jaipur.",
+        "category": "visa"
+      },
+      "q2": {
+        "question": "What documents do I need to bring for university registration?",
+        "answer": "For university registration, you need to bring your passport with valid visa, admission letter, original academic certificates and transcripts, medical fitness certificate, passport-sized photographs, and proof of fee payment. It's also recommended to bring multiple photocopies of all these documents.",
+        "category": "documents"
+      },
+      "q3": {
+        "question": "How can I open a bank account in India as an international student?",
+        "answer": "To open a bank account in India as an international student, you'll need your passport, valid visa, university ID card, proof of address (university hostel letter works), and a reference letter from the International Student Office. Most banks near the campus offer special student accounts with minimal documentation.",
+        "category": "banking"
+      },
+      "q4": {
+        "question": "What healthcare facilities are available on campus?",
+        "answer": "Manipal University Jaipur has a comprehensive health center on campus with general physicians available 24/7. For specialized care, the university has a tie-up with Manipal Hospitals. The campus health center can provide basic medications, first aid, and referrals to specialists when needed.",
+        "category": "health"
+      },
+      "q5": {
+        "question": "How do I extend my visa if needed?",
+        "answer": "To extend your visa, you need to apply through the FRRO (Foreigners Regional Registration Office) portal. You'll need a letter from the university confirming your continued enrollment, your passport, current visa details, and proof of financial means. The International Student Office can guide you through this process.",
+        "category": "visa"
+      },
+      "q6": {
+        "question": "What are the attendance rules and minimum percentage required?",
+        "answer": "A minimum of 75% attendance is mandatory to be eligible for examinations. Falling below this threshold will result in detainment, requiring you to re-register for the course credits, pay the associated fee again, and attend the same course in a future semester.",
+        "category": "academics"
+      },
+      "q7": {
+        "question": "What are the hostel in-time rules?",
+        "answer": "Hostel in-time is 9:00 PM. In case of unavoidable situations, do call and inform any of the hostel wardens about your late arrival. Students can stay outside their rooms within the hostel premises until 11:00 PM. However, all students must return to their rooms by 11:00 PM.",
+        "category": "hostel and campus"
+      }
+    }
+  },
+  "support": {
+    "title": "Support for Special Cases",
+    "subtitle": "Get assistance for non-standard situations and special requirements",
+    "tabs": {
+      "request": "Request Support",
+      "contacts": "Support Contacts"
+    },
+    "form": {
+      "categoryTitle": "Support Categories",
+      "categoryDescription": "Select the type of support you need",
+      "submitTitle": "Submit Support Request",
+      "submitDescription": "Describe your issue in detail and our team will assist you",
+      "categoryLabel": "Category",
+      "categoryPlaceholder": "Select category",
+      "emailLabel": "Your Email",
+      "emailPlaceholder": "your.email@example.com",
+      "messageLabel": "Describe Your Issue",
+      "messagePlaceholder": "Please provide details about your situation...",
+      "submitButton": "Submit Request",
+      "submittedButton": "Submitted"
+    },
+    "categories": {
+      "visa": "Visa & Immigration",
+      "academic": "Academic Issues",
+      "accommodation": "Accommodation",
+      "financial": "Financial Matters",
+      "health": "Health & Wellbeing",
+      "cultural": "Cultural Adjustment",
+      "other": "Other Issues"
+    },
+    "contacts": {
+      "admissions": {
+        "title": "Admissions Office",
+        "description": "Primary contact for all admission matters",
+        "email": "admissions@jaipur.manipal.edu",
+        "phone": "0141 - 3999100 (Extensions 142, 257, 297)",
+        "hours": "Mon-Fri: 9:00 AM - 5:00 PM"
+      },
+      "warden": {
+        "title": "Chief Warden Office",
+        "description": "Hostel inquiries",
+        "email": "office.chiefwarden@jaipur.manipal.edu",
+        "phone": "0141 - 3999100 (Extensions 108, 493)",
+        "hours": "Mon-Fri: 9:00 AM - 5:00 PM"
+      },
+      "finance": {
+        "title": "Student Finance Center",
+        "description": "Financial inquiries",
+        "email": "student.finance@jaipur.manipal.edu",
+        "phone": "0141 - 3999100 (Extensions 236, 252, 741)",
+        "hours": "Mon-Sat: 9:00 AM - 5:00 PM"
+      },
+      "doic": {
+        "title": "Directorate of International Collaborations",
+        "description": "International student queries",
+        "email": "doic@jaipur.manipal.edu",
+        "phone": "0141 - 3999100",
+        "hours": "Mon-Sat: 9:00 AM - 5:00 PM"
+      }
+    },
+    "contactLabels": {
+      "email": "Email",
+      "phone": "Phone",
+      "officeHours": "Office Hours",
+      "callNow": "Call Now",
+      "sendEmail": "Send Email"
     }
   },
   "metadata": {

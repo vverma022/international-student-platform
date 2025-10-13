@@ -21,6 +21,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -58,6 +59,7 @@ const itemVariants = {
 }
 
 export default function Support() {
+  const t = useTranslations('support')
   const [supportCategory, setSupportCategory] = useState("visa")
   const [supportMessage, setSupportMessage] = useState("")
   const [supportEmail, setSupportEmail] = useState("")
@@ -77,71 +79,47 @@ export default function Support() {
   }
 
   const supportCategories = [
-    { id: "visa", name: "Visa & Immigration", icon: <LifeBuoy className="h-4 w-4 md:h-5 md:w-5" /> },
-    { id: "academic", name: "Academic Issues", icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
-    { id: "accommodation", name: "Accommodation", icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
-    { id: "financial", name: "Financial Matters", icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
-    { id: "health", name: "Health & Wellbeing", icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
-    { id: "cultural", name: "Cultural Adjustment", icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
-    { id: "other", name: "Other Issues", icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
+    { id: "visa", name: t('categories.visa'), icon: <LifeBuoy className="h-4 w-4 md:h-5 md:w-5" /> },
+    { id: "academic", name: t('categories.academic'), icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
+    { id: "accommodation", name: t('categories.accommodation'), icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
+    { id: "financial", name: t('categories.financial'), icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
+    { id: "health", name: t('categories.health'), icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
+    { id: "cultural", name: t('categories.cultural'), icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
+    { id: "other", name: t('categories.other'), icon: <MessageSquare className="h-4 w-4 md:h-5 md:w-5" /> },
   ]
 
   const supportContacts = [
     {
       id: "admissions-office",
-      title: "Admissions Office",
-      description: "Primary contact for all admission matters",
-      email: "admissions@jaipur.manipal.edu",
-      phone: "0141 - 3999100 (Extensions 142, 257, 297)",
-      hours: "Mon-Fri: 9:00 AM - 5:00 PM",
+      title: t('contacts.admissions.title'),
+      description: t('contacts.admissions.description'),
+      email: t('contacts.admissions.email'),
+      phone: t('contacts.admissions.phone'),
+      hours: t('contacts.admissions.hours'),
     },
     {
       id: "chief-warden-office",
-      title: "Chief Warden Office",
-      description: "Hostel inquiries",
-      email: "office.chiefwarden@jaipur.manipal.edu",
-      phone: "0141 - 3999100 (Extensions 108, 493)",
-      hours: "Mon-Fri: 9:00 AM - 5:00 PM",
+      title: t('contacts.warden.title'),
+      description: t('contacts.warden.description'),
+      email: t('contacts.warden.email'),
+      phone: t('contacts.warden.phone'),
+      hours: t('contacts.warden.hours'),
     },
     {
       id: "finance",
-      title: "Student Finance Center",
-      description: "Financial inquiries",
-      email: "student.finance@jaipur.manipal.edu",
-      phone: "0141 - 3999100 (Extensions 236, 252, 741)",
-      hours: "Mon-Sat: 9:00 AM - 5:00 PM",
+      title: t('contacts.finance.title'),
+      description: t('contacts.finance.description'),
+      email: t('contacts.finance.email'),
+      phone: t('contacts.finance.phone'),
+      hours: t('contacts.finance.hours'),
     },
     {
       id: "doic",
-      title: "Directorate of International Collaborations",
-      description: "International student queries",
-      email: "doic@jaipur.manipal.edu",
-      phone: "0141 - 3999100",
-      hours: "Mon-Sat: 9:00 AM - 5:00 PM",
-    },
-  ]
-
-  const recentCases = [
-    {
-      id: "case-1",
-      title: "Visa Extension Process",
-      category: "visa",
-      status: "resolved",
-      date: "2 days ago",
-    },
-    {
-      id: "case-2",
-      title: "Accommodation Change Request",
-      category: "accommodation",
-      status: "in-progress",
-      date: "1 week ago",
-    },
-    {
-      id: "case-3",
-      title: "Course Registration Issue",
-      category: "academic",
-      status: "pending",
-      date: "3 days ago",
+      title: t('contacts.doic.title'),
+      description: t('contacts.doic.description'),
+      email: t('contacts.doic.email'),
+      phone: t('contacts.doic.phone'),
+      hours: t('contacts.doic.hours'),
     },
   ]
 
@@ -155,8 +133,8 @@ export default function Support() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-foreground">Support for Special Cases</h1>
-          <p className="text-sm md:text-base text-muted-foreground">Get assistance for non-standard situations and special requirements.</p>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-foreground">{t('title')}</h1>
+          <p className="text-sm md:text-base text-muted-foreground">{t('subtitle')}</p>
         </motion.div>
 
         <motion.div
@@ -165,10 +143,9 @@ export default function Support() {
           transition={{ delay: 0.2, duration: 0.6 }}
         >
           <Tabs defaultValue="request" className="w-full">
-            <TabsList className="grid w-full max-w-md grid-cols-3 mx-auto h-auto">
-              <TabsTrigger value="request" className="text-xs md:text-sm py-2">Request Support</TabsTrigger>
-              <TabsTrigger value="contacts" className="text-xs md:text-sm py-2">Support Contacts</TabsTrigger>
-              <TabsTrigger value="cases" className="text-xs md:text-sm py-2">My Cases</TabsTrigger>
+            <TabsList className="grid w-full max-w-md grid-cols-2 mx-auto h-auto">
+              <TabsTrigger value="request" className="text-xs md:text-sm py-2">{t('tabs.request')}</TabsTrigger>
+              <TabsTrigger value="contacts" className="text-xs md:text-sm py-2">{t('tabs.contacts')}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="request" className="mt-6">
@@ -181,8 +158,8 @@ export default function Support() {
                 <motion.div variants={itemVariants} className="lg:col-span-1">
                   <Card className="h-full">
                     <CardHeader>
-                      <CardTitle className="text-lg md:text-xl">Support Categories</CardTitle>
-                      <CardDescription className="text-xs md:text-sm">Select the type of support you need</CardDescription>
+                      <CardTitle className="text-lg md:text-xl">{t('form.categoryTitle')}</CardTitle>
+                      <CardDescription className="text-xs md:text-sm">{t('form.categoryDescription')}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-2">
@@ -212,18 +189,18 @@ export default function Support() {
                 <motion.div variants={itemVariants} className="lg:col-span-2">
                   <Card className="h-full">
                     <CardHeader>
-                      <CardTitle className="text-lg md:text-xl">Submit Support Request</CardTitle>
-                      <CardDescription className="text-xs md:text-sm">Describe your issue in detail and our team will assist you</CardDescription>
+                      <CardTitle className="text-lg md:text-xl">{t('form.submitTitle')}</CardTitle>
+                      <CardDescription className="text-xs md:text-sm">{t('form.submitDescription')}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <form onSubmit={handleSubmitSupport} className="space-y-4">
                         <div className="space-y-2">
                           <label htmlFor="category" className="text-xs md:text-sm font-medium text-foreground">
-                            Category
+                            {t('form.categoryLabel')}
                           </label>
                           <Select value={supportCategory} onValueChange={setSupportCategory}>
                             <SelectTrigger className="h-10 md:h-11">
-                              <SelectValue placeholder="Select category" />
+                              <SelectValue placeholder={t('form.categoryPlaceholder')} />
                             </SelectTrigger>
                             <SelectContent>
                               {supportCategories.map((category) => (
@@ -237,12 +214,12 @@ export default function Support() {
 
                         <div className="space-y-2">
                           <label htmlFor="email" className="text-xs md:text-sm font-medium text-foreground">
-                            Your Email
+                            {t('form.emailLabel')}
                           </label>
                           <Input
                             id="email"
                             type="email"
-                            placeholder="your.email@example.com"
+                            placeholder={t('form.emailPlaceholder')}
                             value={supportEmail}
                             onChange={(e) => setSupportEmail(e.target.value)}
                             required
@@ -252,11 +229,11 @@ export default function Support() {
 
                         <div className="space-y-2">
                           <label htmlFor="message" className="text-xs md:text-sm font-medium text-foreground">
-                            Describe Your Issue
+                            {t('form.messageLabel')}
                           </label>
                           <Textarea
                             id="message"
-                            placeholder="Please provide details about your situation..."
+                            placeholder={t('form.messagePlaceholder')}
                             rows={5}
                             value={supportMessage}
                             onChange={(e) => setSupportMessage(e.target.value)}
@@ -281,7 +258,7 @@ export default function Support() {
                                     className="flex items-center gap-2"
                                   >
                                     <CheckCircle2 className="h-4 w-4" />
-                                    Submitted
+                                    {t('form.submittedButton')}
                                   </motion.span>
                                 ) : (
                                   <motion.span
@@ -290,7 +267,7 @@ export default function Support() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.8 }}
                                   >
-                                    Submit Request
+                                    {t('form.submitButton')}
                                   </motion.span>
                                 )}
                               </AnimatePresence>
@@ -306,7 +283,7 @@ export default function Support() {
 
             <TabsContent value="contacts" className="mt-6">
               <motion.div 
-                className="grid sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto"
+                className="grid sm:grid-cols-2 gap-5 md:gap-7 max-w-5xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -315,39 +292,113 @@ export default function Support() {
                   <motion.div
                     key={contact.id}
                     variants={itemVariants}
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.3 }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
                   >
-                    <Card className="h-full flex flex-col shadow-md hover:shadow-xl transition-shadow duration-300">
-                      <CardHeader>
-                        <CardTitle className="text-lg md:text-xl">{contact.title}</CardTitle>
-                        <CardDescription className="text-xs md:text-sm">{contact.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-1">
-                        <div className="space-y-3 text-xs md:text-sm text-foreground">
-                          <div className="flex items-center gap-3">
-                            <Mail className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                            <span className="break-all">{contact.email}</span>
+                    <Card className="h-full flex flex-col overflow-hidden border-2 hover:border-primary/50 shadow-lg hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-background to-muted/20">
+                      {/* Header with gradient accent */}
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent" />
+                        <CardHeader className="relative pb-4">
+                          <div className="flex items-start gap-3">
+                            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center ring-4 ring-primary/5">
+                              <LifeBuoy className="h-6 w-6 text-primary" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <CardTitle className="text-lg md:text-xl font-bold mb-1.5 text-foreground">
+                                {contact.title}
+                              </CardTitle>
+                              <CardDescription className="text-xs md:text-sm font-medium">
+                                {contact.description}
+                              </CardDescription>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <Phone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                            <span>{contact.phone}</span>
+                        </CardHeader>
+                      </div>
+
+                      {/* Content with improved spacing */}
+                      <CardContent className="flex-1 pt-2 pb-6">
+                        <div className="space-y-4">
+                          {/* Email */}
+                          <div className="group">
+                            <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/40 hover:bg-muted/60 transition-colors duration-200">
+                              <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                <Mail className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-xs font-semibold text-muted-foreground mb-0.5">{t('contactLabels.email')}</p>
+                                <p className="text-xs md:text-sm font-medium text-foreground break-all leading-relaxed">
+                                  {contact.email}
+                                </p>
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <Clock className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                            <span>{contact.hours}</span>
+
+                          {/* Phone */}
+                          <div className="group">
+                            <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/40 hover:bg-muted/60 transition-colors duration-200">
+                              <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                <Phone className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-xs font-semibold text-muted-foreground mb-0.5">{t('contactLabels.phone')}</p>
+                                <p className="text-xs md:text-sm font-medium text-foreground leading-relaxed">
+                                  {contact.phone}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Hours */}
+                          <div className="group">
+                            <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/40 hover:bg-muted/60 transition-colors duration-200">
+                              <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                <Clock className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-xs font-semibold text-muted-foreground mb-0.5">{t('contactLabels.officeHours')}</p>
+                                <p className="text-xs md:text-sm font-medium text-foreground leading-relaxed">
+                                  {contact.hours}
+                                </p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </CardContent>
-                      <CardFooter className="border-t border-border bg-muted/30 mt-auto">
-                        <div className="flex gap-2 w-full">
-                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
-                            <Button variant="outline" className="w-full text-xs md:text-sm h-9">
-                              Call
+
+                      {/* Footer with improved buttons */}
+                      <CardFooter className="border-t-2 border-border/50 bg-gradient-to-br from-muted/30 to-muted/50 backdrop-blur-sm pt-4 pb-4">
+                        <div className="flex gap-3 w-full">
+                          <motion.div 
+                            whileHover={{ scale: 1.03 }} 
+                            whileTap={{ scale: 0.97 }} 
+                            className="flex-1"
+                          >
+                            <Button 
+                              variant="outline" 
+                              className="w-full text-xs md:text-sm h-10 gap-2 font-semibold border-2 hover:bg-background hover:border-primary/50 transition-all shadow-sm"
+                              asChild
+                            >
+                              <a href={`tel:${contact.phone.replace(/[^0-9+]/g, '')}`}>
+                                <Phone className="h-4 w-4" />
+                                {t('contactLabels.callNow')}
+                              </a>
                             </Button>
                           </motion.div>
-                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
-                            <Button className="w-full text-xs md:text-sm h-9">Email</Button>
+                          <motion.div 
+                            whileHover={{ scale: 1.03 }} 
+                            whileTap={{ scale: 0.97 }} 
+                            className="flex-1"
+                          >
+                            <Button 
+                              className="w-full text-xs md:text-sm h-10 gap-2 font-semibold bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all"
+                              asChild
+                            >
+                              <a href={`mailto:${contact.email}`}>
+                                <Mail className="h-4 w-4" />
+                                {t('contactLabels.sendEmail')}
+                              </a>
+                            </Button>
                           </motion.div>
                         </div>
                       </CardFooter>
@@ -355,84 +406,6 @@ export default function Support() {
                   </motion.div>
                 ))}
               </motion.div>
-            </TabsContent>
-
-            <TabsContent value="cases" className="mt-6">
-              {recentCases.length > 0 ? (
-                <motion.div 
-                  className="space-y-4 max-w-4xl mx-auto"
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  {recentCases.map((caseItem, index) => (
-                    <motion.div
-                      key={caseItem.id}
-                      variants={itemVariants}
-                      whileHover={{ x: 4 }}
-                    >
-                      <Card>
-                        <CardContent className="p-0">
-                          <div className="p-4 md:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                            <div className="flex-1 min-w-0">
-                              <h3 className="font-medium mb-1 text-sm md:text-base text-foreground truncate">{caseItem.title}</h3>
-                              <div className="flex items-center gap-3 text-xs md:text-sm text-muted-foreground">
-                                <span className="capitalize">{caseItem.category}</span>
-                                <span>•</span>
-                                <span>{caseItem.date}</span>
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-3 w-full sm:w-auto">
-                              <Badge
-                                variant={
-                                  caseItem.status === "resolved"
-                                    ? "default"
-                                    : caseItem.status === "in-progress"
-                                      ? "secondary"
-                                      : "outline"
-                                }
-                                className="capitalize text-xs"
-                              >
-                                {caseItem.status}
-                              </Badge>
-                              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Button variant="outline" size="sm" className="text-xs">
-                                  View Details
-                                </Button>
-                              </motion.div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              ) : (
-                <motion.div 
-                  className="text-center py-12 max-w-md mx-auto"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                  >
-                    <LifeBuoy className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  </motion.div>
-                  <h3 className="text-lg font-medium mb-2 text-foreground">No support cases yet</h3>
-                  <p className="text-sm text-muted-foreground mb-6">You haven't submitted any support requests.</p>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button
-                      onClick={() =>
-                        document.querySelector('[value="request"]')?.dispatchEvent(new MouseEvent("click", { bubbles: true }))
-                      }
-                    >
-                      Create New Request
-                    </Button>
-                  </motion.div>
-                </motion.div>
-              )}
             </TabsContent>
           </Tabs>
         </motion.div>

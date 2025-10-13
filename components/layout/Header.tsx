@@ -54,8 +54,7 @@ export function Header() {
     { href: `/${locale}`, label: t('home') },
     { href: `/${locale}/panorama`, label: t('virtualTours') },
     { href: `/${locale}/faq`, label: t('faq') },
-    { href: `/${locale}/support`, label: t('support') },
-    { href: `/${locale}/documents`, label: t('documents') }
+    { href: `/${locale}/support`, label: t('support') }
   ]
 
   const isActive = (href: string) => {

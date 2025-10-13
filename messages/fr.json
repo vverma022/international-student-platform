@@ -75,22 +75,144 @@
     }
   },
   "virtualTours": {
-    "title": "Visites virtuelles du campus",
-    "description": "Explorez notre campus de partout dans le monde",
-    "mapTab": "Carte 3D",
-    "locationsTab": "Emplacements",
-    "interactiveMap": "Carte interactive du campus",
-    "clickMarkers": "Cliquez sur les marqueurs pour explorer différents emplacements du campus",
-    "actions": "Actions",
-    "streetView": "Vue de rue",
-    "virtualTour": "Visite virtuelle",
-    "getDirections": "Obtenir l'itinéraire",
-    "viewOnMap": "Voir sur la carte",
+    "title": "Carte du Campus",
+    "description": "Explorez le plan du campus de l'Université Manipal Jaipur",
+    "subtitle": "Utilisez la carte interactive pour naviguer et vous familiariser avec la géographie du campus",
+    "cardTitle": "Université Manipal Jaipur - Carte du Campus",
+    "cardDescription": "Carte interactive centrée sur le campus MUJ à Dehmi Kalan, Jaipur. Zoomez et déplacez-vous pour explorer la zone du campus"
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Trouvez des réponses aux questions courantes sur la vie étudiante internationale à MUJ",
+    "searchPlaceholder": "Rechercher des questions...",
+    "searchLabel": "Rechercher dans la FAQ",
+    "allCategories": "Toutes les Catégories",
+    "noResults": "Aucune FAQ trouvée",
+    "noResultsDescription": "Essayez d'ajuster votre recherche ou filtre",
+    "addQuestion": "Ajouter une Nouvelle Question",
     "categories": {
-      "academic": "Académique",
-      "dining": "Restauration",
-      "residential": "Résidentiel",
-      "administrative": "Administratif"
+      "visa": "Visa et Immigration",
+      "documents": "Documents et Inscription",
+      "banking": "Banque et Finance",
+      "health": "Santé et Assurance",
+      "academics": "Académiques",
+      "hostelAndCampus": "Résidence et Vie sur le Campus",
+      "general": "Informations Générales"
+    },
+    "dialog": {
+      "title": "Ajouter une Nouvelle FAQ",
+      "description": "Soumettez une nouvelle question à ajouter à notre base de données FAQ",
+      "questionLabel": "Votre Question",
+      "questionPlaceholder": "Entrez votre question ici...",
+      "answerLabel": "Votre Réponse (Optionnel)",
+      "answerPlaceholder": "Entrez votre réponse ou laissez vide pour que notre équipe réponde...",
+      "cancel": "Annuler",
+      "submit": "Soumettre la Question"
+    },
+    "questions": {
+      "q1": {
+        "question": "Comment puis-je demander un visa étudiant pour l'Inde?",
+        "answer": "Vous pouvez demander un visa étudiant, PIO ou OCI à l'ambassade ou au consulat indien le plus proche. Vous devrez soumettre la lettre de confirmation d'admission délivrée par le directeur des admissions de l'Université Manipal Jaipur.",
+        "category": "visa"
+      },
+      "q2": {
+        "question": "Quels documents dois-je apporter pour l'inscription à l'université?",
+        "answer": "Pour l'inscription à l'université, vous devez apporter votre passeport avec un visa valide, une lettre d'admission, des certificats académiques originaux et des relevés de notes, un certificat médical d'aptitude, des photos d'identité et une preuve de paiement des frais. Il est également recommandé d'apporter plusieurs photocopies de tous ces documents.",
+        "category": "documents"
+      },
+      "q3": {
+        "question": "Comment puis-je ouvrir un compte bancaire en Inde en tant qu'étudiant international?",
+        "answer": "Pour ouvrir un compte bancaire en Inde en tant qu'étudiant international, vous aurez besoin de votre passeport, d'un visa valide, d'une carte d'identité universitaire, d'une preuve d'adresse (une lettre du foyer universitaire fonctionne) et d'une lettre de référence du Bureau des étudiants internationaux. La plupart des banques près du campus offrent des comptes étudiants spéciaux avec un minimum de documentation.",
+        "category": "banking"
+      },
+      "q4": {
+        "question": "Quelles sont les installations de santé disponibles sur le campus?",
+        "answer": "L'Université Manipal Jaipur dispose d'un centre de santé complet sur le campus avec des médecins généralistes disponibles 24h/24 et 7j/7. Pour des soins spécialisés, l'université a un partenariat avec les hôpitaux Manipal. Le centre de santé du campus peut fournir des médicaments de base, des premiers soins et des références à des spécialistes si nécessaire.",
+        "category": "health"
+      },
+      "q5": {
+        "question": "Comment puis-je prolonger mon visa si nécessaire?",
+        "answer": "Pour prolonger votre visa, vous devez faire une demande via le portail FRRO (Bureau régional d'enregistrement des étrangers). Vous aurez besoin d'une lettre de l'université confirmant votre inscription continue, de votre passeport, des détails de votre visa actuel et d'une preuve de moyens financiers. Le Bureau des étudiants internationaux peut vous guider dans ce processus.",
+        "category": "visa"
+      },
+      "q6": {
+        "question": "Quelles sont les règles de présence et le pourcentage minimum requis?",
+        "answer": "Un minimum de 75% de présence est obligatoire pour être éligible aux examens. Tomber en dessous de ce seuil entraînera une détention, vous obligeant à vous réinscrire pour les crédits du cours, à payer à nouveau les frais associés et à suivre le même cours lors d'un semestre futur.",
+        "category": "academics"
+      },
+      "q7": {
+        "question": "Quelles sont les règles d'heures de rentrée au foyer?",
+        "answer": "L'heure de rentrée au foyer est à 21h00. En cas de situations inévitables, appelez et informez l'un des gardiens du foyer de votre arrivée tardive. Les étudiants peuvent rester à l'extérieur de leurs chambres dans les locaux du foyer jusqu'à 23h00. Cependant, tous les étudiants doivent retourner dans leurs chambres avant 23h00.",
+        "category": "hostel and campus"
+      }
+    }
+  },
+  "support": {
+    "title": "Support pour Cas Spéciaux",
+    "subtitle": "Obtenez de l'assistance pour des situations non standard et des exigences spéciales",
+    "tabs": {
+      "request": "Demander du Support",
+      "contacts": "Contacts de Support"
+    },
+    "form": {
+      "categoryTitle": "Catégories de Support",
+      "categoryDescription": "Sélectionnez le type de support dont vous avez besoin",
+      "submitTitle": "Soumettre une Demande de Support",
+      "submitDescription": "Décrivez votre problème en détail et notre équipe vous assistera",
+      "categoryLabel": "Catégorie",
+      "categoryPlaceholder": "Sélectionner une catégorie",
+      "emailLabel": "Votre Email",
+      "emailPlaceholder": "votre.email@exemple.com",
+      "messageLabel": "Décrivez Votre Problème",
+      "messagePlaceholder": "Veuillez fournir des détails sur votre situation...",
+      "submitButton": "Soumettre la Demande",
+      "submittedButton": "Soumis"
+    },
+    "categories": {
+      "visa": "Visa et Immigration",
+      "academic": "Problèmes Académiques",
+      "accommodation": "Logement",
+      "financial": "Questions Financières",
+      "health": "Santé et Bien-être",
+      "cultural": "Adaptation Culturelle",
+      "other": "Autres Problèmes"
+    },
+    "contacts": {
+      "admissions": {
+        "title": "Bureau des Admissions",
+        "description": "Contact principal pour toutes les questions d'admission",
+        "email": "admissions@jaipur.manipal.edu",
+        "phone": "0141 - 3999100 (Extensions 142, 257, 297)",
+        "hours": "Lun-Ven: 9:00 - 17:00"
+      },
+      "warden": {
+        "title": "Bureau du Gardien en Chef",
+        "description": "Demandes concernant les résidences",
+        "email": "office.chiefwarden@jaipur.manipal.edu",
+        "phone": "0141 - 3999100 (Extensions 108, 493)",
+        "hours": "Lun-Ven: 9:00 - 17:00"
+      },
+      "finance": {
+        "title": "Centre des Finances Étudiantes",
+        "description": "Questions financières",
+        "email": "student.finance@jaipur.manipal.edu",
+        "phone": "0141 - 3999100 (Extensions 236, 252, 741)",
+        "hours": "Lun-Sam: 9:00 - 17:00"
+      },
+      "doic": {
+        "title": "Direction des Collaborations Internationales",
+        "description": "Questions des étudiants internationaux",
+        "email": "doic@jaipur.manipal.edu",
+        "phone": "0141 - 3999100",
+        "hours": "Lun-Sam: 9:00 - 17:00"
+      }
+    },
+    "contactLabels": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "officeHours": "Heures d'Ouverture",
+      "callNow": "Appeler Maintenant",
+      "sendEmail": "Envoyer un Email"
     }
   }
 }
