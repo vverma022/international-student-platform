@@ -38,7 +38,8 @@
   },
   "header": {
     "home": "Accueil",
-    "virtualTours": "Visites virtuelles",
+    "virtualTours": "Visites Virtuelles",
+    "campusMap": "Carte du Campus",
     "faq": "FAQ",
     "support": "Support",
     "documents": "Documents",
@@ -62,8 +63,12 @@
       "description": "Questions fréquemment posées sur les études à l'Université Manipal Jaipur en tant qu'étudiant international."
     },
     "virtualTours": {
-      "title": "Visites virtuelles - MUJ International",
-      "description": "Faites des visites virtuelles immersives des installations et bâtiments du campus de l'Université Manipal Jaipur."
+      "title": "Visites Virtuelles - MUJ International",
+      "description": "Faites des visites virtuelles immersives à 360° des installations et bâtiments du campus de l'Université Manipal Jaipur."
+    },
+    "campusMap": {
+      "title": "Carte du Campus - MUJ International",
+      "description": "Carte interactive du campus de l'Université Manipal Jaipur montrant tous les bâtiments et installations."
     },
     "support": {
       "title": "Support - MUJ International",
@@ -75,9 +80,25 @@
     }
   },
   "virtualTours": {
+    "title": "Visites Virtuelles du Campus",
+    "subtitle": "Explorez le campus de l'Université Manipal Jaipur à travers des vues panoramiques immersives à 360°",
+    "panoramaTitle": "Vues Panoramiques du Campus à 360°",
+    "locations": {
+      "dome": "Dôme",
+      "library": "Bibliothèque",
+      "ab1": "AB1",
+      "ab2": "AB2",
+      "aic": "AIC",
+      "conferenceRoom": "Salle de Conférence",
+      "finance": "Bureau des Finances",
+      "gym": "Gymnase",
+      "oldMess": "Ancien Réfectoire",
+      "gameRoom": "Salle de Jeux"
+    }
+  },
+  "campusMap": {
     "title": "Carte du Campus",
-    "description": "Explorez le plan du campus de l'Université Manipal Jaipur",
-    "subtitle": "Utilisez la carte interactive pour naviguer et vous familiariser avec la géographie du campus",
+    "subtitle": "Naviguez dans le plan du campus de l'Université Manipal Jaipur avec notre carte interactive",
     "cardTitle": "Université Manipal Jaipur - Carte du Campus",
     "cardDescription": "Carte interactive centrée sur le campus MUJ à Dehmi Kalan, Jaipur. Zoomez et déplacez-vous pour explorer la zone du campus"
   },

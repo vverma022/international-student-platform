@@ -53,6 +53,7 @@ export function Header() {
   const navigationLinks = [
     { href: `/${locale}`, label: t('home') },
     { href: `/${locale}/panorama`, label: t('virtualTours') },
+    { href: `/${locale}/campus-map`, label: t('campusMap') },
     { href: `/${locale}/faq`, label: t('faq') },
     { href: `/${locale}/support`, label: t('support') }
   ]

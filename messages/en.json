@@ -39,6 +39,7 @@
   "header": {
     "home": "Home",
     "virtualTours": "Virtual Tours",
+    "campusMap": "Campus Map",
     "faq": "FAQ",
     "support": "Support",
     "documents": "Documents",
@@ -53,9 +54,25 @@
     "copyright": "Manipal University Jaipur. All rights reserved."
   },
   "virtualTours": {
+    "title": "Virtual Campus Tours",
+    "subtitle": "Explore Manipal University Jaipur campus through immersive 360° panoramic views",
+    "panoramaTitle": "360° Campus Panoramic Views",
+    "locations": {
+      "dome": "Dome",
+      "library": "Library",
+      "ab1": "AB1",
+      "ab2": "AB2",
+      "aic": "AIC",
+      "conferenceRoom": "Conference Room",
+      "finance": "Finance Office",
+      "gym": "Gym",
+      "oldMess": "Old Mess",
+      "gameRoom": "Game Room"
+    }
+  },
+  "campusMap": {
     "title": "Campus Map",
-    "description": "Explore the Manipal University Jaipur campus layout",
-    "subtitle": "Use the interactive map to navigate and familiarize yourself with the campus geography",
+    "subtitle": "Navigate the Manipal University Jaipur campus layout with our interactive map",
     "cardTitle": "Manipal University Jaipur - Campus Map",
     "cardDescription": "Interactive map centered on MUJ campus in Dehmi Kalan, Jaipur. Zoom and pan to explore the campus area"
   },
@@ -204,7 +221,11 @@
     },
     "virtualTours": {
       "title": "Virtual Tours - MUJ International",
-      "description": "Take immersive virtual tours of Manipal University Jaipur campus facilities and buildings."
+      "description": "Take immersive 360° virtual tours of Manipal University Jaipur campus facilities and buildings."
+    },
+    "campusMap": {
+      "title": "Campus Map - MUJ International",
+      "description": "Interactive campus map of Manipal University Jaipur showing all buildings and facilities."
     },
     "support": {
       "title": "Support - MUJ International",
